@@ -30,7 +30,7 @@ export default function CTA() {
           variants={fadeUp}
           className="font-mono text-[11px] text-brand-muted uppercase tracking-[0.3em] mb-8"
         >
-          — 10 vagas de inauguração. Quando fechar, fecha.
+          — Primeiro contato: 15 minutos. Sem compromisso.
         </motion.p>
 
         {/* Headline */}

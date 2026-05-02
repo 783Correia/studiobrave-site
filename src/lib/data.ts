@@ -3,46 +3,35 @@ export const WHATSAPP_URL =
 
 export const NAV_LINKS = [
   { label: "Tese",     href: "#tese"     },
-  { label: "Produtos", href: "#produtos"  },
+  { label: "Soluções", href: "#produtos"  },
   { label: "Cases",    href: "#cases"     },
   { label: "Processo", href: "#processo"  },
-];
-
-export const HERO_STATS = [
-  { num: "R$72k",      label: "Gerado em entrada" },
-  { num: "R$26,5k/mês", label: "Recorrente ativo" },
-  { num: "3 anos",     label: "de mercado"         },
-  { num: "5+",         label: "clientes ativos com resultado" },
 ];
 
 export const PILLARS = [
   {
     num: "01",
-    title: "Não vendemos volume",
-    desc: '"4 posts/semana" não é entregável. É objetivo de período.',
+    title: "Estrutura antes de execução",
+    desc: "Não criamos conteúdo sem antes organizar o que será dito, para quem e por quê. Execução sem estrutura é desperdício.",
   },
   {
     num: "02",
-    title: "Coerência entre canais",
-    desc: "Não adianta newsletter no site e dancinha no Instagram.",
+    title: "Percepção é ativo",
+    desc: "A forma como seu negócio aparece determina o tipo de cliente que atrai — e quanto consegue cobrar.",
   },
   {
     num: "03",
-    title: "Estratégia antes de execução",
-    desc: "Entendemos o humano que decide antes de criar qualquer coisa.",
+    title: "Sistema fecha o ciclo",
+    desc: "CRM, automação e IA para que nenhum relacionamento seja perdido por falta de processo.",
   },
 ];
 
-export type Feature = {
-  text: string;
-  included: boolean;
-};
+export type Feature = { text: string };
 
 export type Product = {
-  vagas: string;
+  tag: string;
   name: string;
-  priceEntry: string;
-  priceMonthly: string;
+  tagline: string;
   featured: boolean;
   badge: string | null;
   features: Feature[];
@@ -50,62 +39,69 @@ export type Product = {
 
 export const PRODUCTS: Product[] = [
   {
-    vagas: "5 vagas",
+    tag: "Entrada",
     name: "Brave Start",
-    priceEntry: "R$ 5.000",
-    priceMonthly: "entrada única",
+    tagline: "Sua presença digital com o posicionamento certo desde o primeiro dia.",
     featured: false,
     badge: null,
     features: [
-      { text: "Site completo com posicionamento visual", included: true },
-      { text: "Copy de apresentação",                    included: true },
-      { text: "Deploy + domínio configurado",            included: true },
-      { text: "SEO técnico básico",                      included: true },
-      { text: "Prazo: 7–10 dias úteis",                  included: true },
-      { text: "Gestão Instagram — não incluso",          included: false },
-      { text: "Tráfego pago — não incluso",              included: false },
+      { text: "Site completo com posicionamento visual" },
+      { text: "Copy de apresentação estratégica" },
+      { text: "Deploy + domínio configurado" },
+      { text: "SEO técnico" },
+      { text: "Entrega em 7–10 dias úteis" },
     ],
   },
   {
-    vagas: "3 vagas",
-    name: "Start + Scale",
-    priceEntry: "R$ 5.000",
-    priceMonthly: "+ R$ 3.500/mês",
+    tag: "Organização",
+    name: "Brave Core",
+    tagline: "Organize como seu negócio é apresentado e percebido em cada canal.",
     featured: false,
     badge: null,
     features: [
-      { text: "Tudo do Brave Start",            included: true },
-      { text: "Gestão do Instagram",            included: true },
-      { text: "Calendário editorial mensal",    included: true },
-      { text: "Criativos por objetivo",         included: true },
-      { text: "Relatório mensal",               included: true },
-      { text: "Reunião mensal 30 min",          included: true },
-      { text: "Tráfego pago — não incluso",     included: false },
+      { text: "Tudo do Brave Start" },
+      { text: "Mapeamento de posicionamento" },
+      { text: "Arquitetura de presença digital" },
+      { text: "Narrativa de marca consistente" },
+      { text: "Coerência entre todos os canais" },
     ],
   },
   {
-    vagas: "2 vagas",
-    name: "Pacote Completo",
-    priceEntry: "R$ 16.000",
-    priceMonthly: "+ R$ 8.000/mês",
-    featured: true,
-    badge: "Recomendado",
+    tag: "Gestão",
+    name: "Brave Scale",
+    tagline: "Acompanhamento contínuo para manter o negócio crescendo no digital.",
+    featured: false,
+    badge: null,
     features: [
-      { text: "Tudo do Start + Scale",          included: true },
-      { text: "Landing page de conversão",      included: true },
-      { text: "Tráfego pago gerenciado",        included: true },
-      { text: "Tracking GA4 + Meta Pixel",      included: true },
-      { text: "CRM + automação configurado",    included: true },
-      { text: "Relatório mensal com CPL real",  included: true },
-      { text: "Verba de mídia separada",        included: true },
+      { text: "Tudo do Brave Core" },
+      { text: "Gestão editorial mensal por objetivo" },
+      { text: "Criativos e tráfego pago gerenciado" },
+      { text: "Relatório mensal com CPL real" },
+      { text: "Reunião mensal de 30 minutos" },
     ],
   },
 ];
 
+export const BRAVE_SYSTEM = {
+  tag: "Sistema",
+  name: "Brave System",
+  tagline: "Organiza o processo de relacionamento. Não deixa dinheiro na mesa.",
+  badge: "Topo da cadeia",
+  desc: "Não é um plano. É um projeto de infraestrutura — com setup e retainer mensal. Para empresários que entendem que o maior problema não é atrair cliente: é não perder o que já chegou.",
+  features: [
+    { text: "Tudo do Brave Scale" },
+    { text: "CRM configurado para o fluxo do seu negócio" },
+    { text: "Automações de follow-up e nutrição" },
+    { text: "IA para qualificação e acompanhamento de leads" },
+    { text: "Integração com canais existentes" },
+    { text: "Relatório de pipeline e taxa de conversão" },
+    { text: "Revisão quinzenal de 30 minutos" },
+  ],
+};
+
 export const CASES = [
   {
     client: "Torno Metal",
-    name: "Everton Lopes",
     location: "Passo Fundo/RS",
     segment: "Indústria de peças agrícolas",
     action: "Meta Ads + site + criativos alinhados por público",
@@ -114,7 +110,6 @@ export const CASES = [
   },
   {
     client: "Sales Embalagens",
-    name: "Sales Embalagens",
     location: "Passo Fundo/RS",
     segment: "Distribuidora de embalagens",
     action: "Estrutura digital completa + criativos certos para rodar",
@@ -124,7 +119,6 @@ export const CASES = [
   },
   {
     client: "Jacó Locadora",
-    name: "Jacó Locadora",
     location: "Lagoa Vermelha/RS",
     segment: "Locadora de equipamentos",
     action: "Site refeito + criativos + comunicação alinhada",
@@ -142,7 +136,7 @@ export const PROCESS_STEPS = [
   {
     num: "02",
     title: "Diagnóstico",
-    desc: "Analisamos o que você já tem. Respondemos as perguntas certas antes de propor qualquer coisa.",
+    desc: "Analisamos o que você já tem: canais, posicionamento, processo de venda. Respondemos as perguntas certas antes de propor qualquer coisa.",
   },
   {
     num: "03",
@@ -157,6 +151,6 @@ export const PROCESS_STEPS = [
   {
     num: "05",
     title: "Execução e Relatório",
-    desc: "Calendário editorial por objetivo de período. Relatório mensal com CPL real. Reunião mensal de 30 minutos. Sem surpresa.",
+    desc: "Cada entregável tem um motivo de existir dentro do plano. Relatório mensal com dado real. Reunião de 30 minutos. Sem surpresa.",
   },
 ];

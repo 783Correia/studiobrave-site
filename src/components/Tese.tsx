@@ -41,7 +41,7 @@ export default function Tese() {
         MAS NÃO PARECE BOM.
       </motion.h2>
 
-      {/* Quote card */}
+      {/* Card — o problema */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -51,16 +51,17 @@ export default function Tese() {
         style={{ borderLeft: "4px solid #C41E1E" }}
       >
         <p className="text-brand-text text-[16px] md:text-[18px] leading-relaxed mb-6">
-          Empresários que já têm resultado, faturamento e reputação — mas que no
-          digital parecem pequenos, desorganizados ou amadores.
+          A maioria dos bons negócios parece pequena no digital. Não por falta
+          de qualidade — mas por falta de estrutura.
         </p>
         <p className="text-brand-muted text-[15px] leading-relaxed">
-          Esse desalinhamento gera perda de autoridade, perda de confiança e
-          dependência excessiva de indicação.
+          Empresários com resultado, faturamento e reputação que no digital
+          parecem desorganizados ou amadores. Esse desalinhamento custa
+          autoridade, custa confiança e mantém o empresário refém da indicação.
         </p>
       </motion.div>
 
-      {/* H2H card */}
+      {/* Card — a distinção */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -69,17 +70,18 @@ export default function Tese() {
         className="bg-brand-card2 border border-brand-border p-10 md:p-12 mb-20"
         style={{ borderLeft: "4px solid #333333" }}
       >
-        <p className="font-mono text-[11px] text-brand-muted uppercase tracking-[0.2em] mb-4">
-          Toda venda é H2H
+        <p className="font-mono text-[11px] text-brand-muted uppercase tracking-[0.2em] mb-5">
+          A diferença que muda o jogo
         </p>
-        <p className="text-brand-text text-[15px] md:text-[16px] leading-relaxed mb-4">
-          Marketing digital é ferramenta de aquisição de clientes. Instagram,
-          tráfego, site — são meios de distribuição de mensagem.
+        <p className="text-brand-text text-[15px] md:text-[17px] leading-relaxed mb-4">
+          Agência entrega post. Nós entregamos processo.
         </p>
         <p className="text-brand-muted text-[15px] leading-relaxed">
-          No final de qualquer funil, B2B ou B2C, tem um humano decidindo.{" "}
+          Site, Instagram e tráfego são canais. O que determina o resultado é
+          como o seu negócio é estruturado, percebido e operado em cima desses
+          canais.{" "}
           <strong className="text-brand-text font-medium">
-            Toda venda é H2H.
+            Não vendemos marketing. Vendemos estrutura + percepção + sistema.
           </strong>
         </p>
       </motion.div>

@@ -16,7 +16,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2, ease }}
           className="font-mono text-[11px] text-brand-red uppercase tracking-[0.3em] mb-8"
         >
-          STUDIO BRAVE · ACELERADORES DE NEGÓCIOS · 2026
+          STUDIO BRAVE · ESTRUTURA E SISTEMA DE NEGÓCIO · 2026
         </motion.p>
 
         {/* Headline */}
@@ -35,10 +35,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6, ease }}
-          className="text-brand-muted text-[18px] md:text-[20px] font-light max-w-[560px] mb-12 leading-relaxed"
+          className="text-brand-muted text-[18px] md:text-[20px] font-light max-w-[600px] mb-12 leading-relaxed"
         >
-          Não somos agência. Somos a estrutura digital que faz o seu negócio
-          parecer o que ele já é.
+          A Brave não é uma agência. Ela estrutura a forma como o seu negócio
+          é apresentado, operado e percebido no digital.
         </motion.p>
 
         {/* Divider */}
@@ -46,7 +46,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8, ease }}
-          className="flex items-center gap-4 mb-16"
+          className="flex items-center gap-4"
         >
           <span className="block w-[60px] h-px bg-brand-red flex-shrink-0" />
           <span className="font-mono text-[11px] text-brand-red uppercase tracking-[0.2em]">
@@ -59,7 +59,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0, ease }}
-          className="md:hidden mt-8"
+          className="md:hidden mt-10"
         >
           <a
             href={WHATSAPP_URL}
