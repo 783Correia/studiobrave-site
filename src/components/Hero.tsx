@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { HERO_STATS, WHATSAPP_URL } from "@/lib/data";
+import { WHATSAPP_URL } from "@/lib/data";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -54,30 +54,11 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Stats bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0, ease }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-px bg-brand-border border border-brand-border"
-        >
-          {HERO_STATS.map((stat) => (
-            <div key={stat.label} className="bg-brand-dark px-6 py-8 text-center">
-              <span className="block font-display text-[40px] md:text-[48px] text-brand-red leading-none mb-2">
-                {stat.num}
-              </span>
-              <span className="block font-mono text-[10px] text-brand-muted uppercase tracking-[0.15em] leading-snug">
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </motion.div>
-
         {/* Mobile CTA */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.1, ease }}
+          transition={{ duration: 0.8, delay: 1.0, ease }}
           className="md:hidden mt-8"
         >
           <a
