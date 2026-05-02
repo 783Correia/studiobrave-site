@@ -86,16 +86,6 @@ export default function Produtos() {
               {product.name}
             </h3>
 
-            {/* Price */}
-            <div className="mb-8">
-              <span className="block font-display text-[40px] text-brand-red leading-none">
-                {product.priceEntry}
-              </span>
-              <span className="block font-mono text-[12px] text-brand-muted mt-1 tracking-wide">
-                {product.priceMonthly}
-              </span>
-            </div>
-
             {/* Divider */}
             <div className="w-full h-px bg-brand-border mb-8" />
 
@@ -131,7 +121,7 @@ export default function Produtos() {
                   : "border border-brand-border text-brand-muted hover:text-white hover:border-white"
               }`}
             >
-              Garantir vaga
+              Quero saber mais
             </a>
           </motion.div>
         ))}
