@@ -110,7 +110,7 @@ export const CASES = [
   },
   {
     client: "Sales Embalagens",
-    location: "Passo Fundo/RS",
+    location: "Fortaleza/CE",
     segment: "Distribuidora de embalagens",
     action: "Estrutura digital completa + criativos certos para rodar",
     result: "560%",
@@ -118,8 +118,8 @@ export const CASES = [
     resultSub: "R$25k → R$165k no mesmo mês",
   },
   {
-    client: "Jacó Locadora",
-    location: "Lagoa Vermelha/RS",
+    client: "Jaco Locadora",
+    location: "Palhoça/SC",
     segment: "Locadora de equipamentos",
     action: "Site refeito + criativos + comunicação alinhada",
     result: "#1",
