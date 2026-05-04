@@ -1,5 +1,5 @@
 export const WHATSAPP_URL =
-  "https://wa.me/5554XXXXXXXX?text=Quero+saber+mais+sobre+a+Studio+Brave";
+  "https://wa.me/5554996865236?text=Quero+saber+mais+sobre+a+Studio+Brave";
 
 export const NAV_LINKS = [
   { label: "Tese",     href: "#tese"     },
