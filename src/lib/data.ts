@@ -141,7 +141,7 @@ export const PROCESS_STEPS = [
   {
     num: "03",
     title: "Proposta",
-    desc: "Personalizada. Com diagnóstico, solução, entregáveis, cronograma e investimento. Prazo de validade: 7 dias.",
+    desc: "Personalizada. Com diagnóstico, solução, entregáveis, cronograma e condições. Prazo de validade: 7 dias.",
   },
   {
     num: "04",
