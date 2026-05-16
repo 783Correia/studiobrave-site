@@ -120,10 +120,11 @@ export const CASES = [
   {
     client: "Jaco Locadora",
     location: "Palhoça/SC",
-    segment: "Locadora de equipamentos",
-    action: "Site refeito + criativos + comunicação alinhada",
-    result: "#1",
-    resultLabel: "no Google em 24h",
+    segment: "Locadora de equipamentos pesados",
+    action: "Site + SEO + Google Meu Negócio estruturado",
+    result: "12,68%",
+    resultLabel: "conversão do site",
+    resultSub: "102 ações GMB · 18 ligações em abril",
   },
 ];
 
