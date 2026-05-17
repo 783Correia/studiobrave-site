@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-brand-red:      #C41E1E;
-  --color-brand-red-light: #FF2E2E;
-  --color-brand-dark:     #111111;
-  --color-brand-card:     #161616;
-  --color-brand-card2:    #1C1C1C;
-  --color-brand-border:   #2A2A2A;
-  --color-brand-text:     #E8E8E8;
-  --color-brand-muted:    #666666;
-  --color-brand-black:    #0A0A0A;
+  --color-brand-red:       #C41E1E;
+  --color-brand-red-light: #E02222;
+  --color-brand-dark:      #111111;
+  --color-brand-card:      #141414;
+  --color-brand-card2:     #1A1A1A;
+  --color-brand-border:    #262626;
+  --color-brand-text:      #E8E8E8;
+  --color-brand-muted:     #606060;
+  --color-brand-black:     #0A0A0A;
 
   --font-display: var(--font-bebas), "Bebas Neue", sans-serif;
   --font-body:    var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
@@ -20,10 +20,10 @@
   --red:    #C41E1E;
   --black:  #0A0A0A;
   --dark:   #111111;
-  --card:   #161616;
-  --border: #2A2A2A;
+  --card:   #141414;
+  --border: #262626;
   --text:   #E8E8E8;
-  --muted:  #666666;
+  --muted:  #606060;
 }
 
 @layer base {
@@ -35,6 +35,7 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
   }
 
   body {
@@ -45,22 +46,26 @@
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar { width: 3px; }
   ::-webkit-scrollbar-track { background: var(--black); }
-  ::-webkit-scrollbar-thumb { background: var(--red); }
+  ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
 
   ::selection { background: var(--red); color: #fff; }
+
+  a { text-decoration: none; }
 }
 
+/* Noise grain overlay */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  background-size: 200px 200px;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.3;
+  opacity: 0.25;
 }

@@ -9,20 +9,20 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export default function Cases() {
   return (
-    <Container className="py-24 md:py-32">
+    <Container className="py-28 md:py-40">
       <AnimatedSection>
         <SectionLabel className="text-brand-red">03 — RESULTADOS REAIS</SectionLabel>
       </AnimatedSection>
 
       <AnimatedSection>
-        <h2 className="font-display text-[clamp(40px,6vw,80px)] leading-[0.9] text-white mb-4">
+        <h2 className="font-display text-[clamp(44px,6.5vw,88px)] leading-[0.88] text-white mb-4">
           NÃO É PROMESSA.<br />
           É O QUE JÁ ACONTECEU.
         </h2>
       </AnimatedSection>
 
       <AnimatedSection>
-        <p className="text-brand-muted text-[15px] mb-16 max-w-[480px]">
+        <p className="text-brand-muted text-[15px] mb-20 max-w-[480px]">
           Cada número aqui é rastreável. Nenhuma estimativa.
         </p>
       </AnimatedSection>
@@ -35,10 +35,11 @@ export default function Cases() {
           <motion.div
             key={c.client}
             variants={fadeUp}
-            className="bg-brand-card p-8 md:p-10 flex flex-col"
+            className="bg-brand-card p-8 md:p-10 flex flex-col group transition-colors duration-300 hover:bg-brand-card2 cursor-default"
           >
-            <div className="mb-8">
-              <span className="block font-display text-[20px] text-white tracking-wide leading-none mb-1">
+            {/* Client info */}
+            <div className="mb-6">
+              <span className="block font-display text-[22px] text-white tracking-wide leading-none mb-1.5">
                 {c.client}
               </span>
               <span className="block font-mono text-[10px] text-brand-muted uppercase tracking-[0.15em]">
@@ -51,25 +52,24 @@ export default function Cases() {
             </p>
 
             <div className="mb-8">
-              <span className="block font-mono text-[9px] text-brand-muted uppercase tracking-[0.2em] mb-2">
-                Ação:
+              <span className="block font-mono text-[9px] text-brand-muted uppercase tracking-[0.25em] mb-2">
+                O que fizemos:
               </span>
-              <p className="text-brand-muted text-[13px] leading-snug">
+              <p className="text-[#888888] text-[13px] leading-snug">
                 {c.action}
               </p>
             </div>
 
-            <div className="w-full h-px bg-brand-border mb-8 mt-auto" />
-
-            <div>
-              <span className="block font-display text-[72px] md:text-[80px] text-brand-red leading-none mb-1">
+            <div className="mt-auto">
+              <div className="w-8 h-[2px] bg-brand-red mb-6 group-hover:w-16 transition-all duration-500" />
+              <span className="block font-display text-[80px] md:text-[96px] text-brand-red leading-[0.85] mb-2">
                 {c.result}
               </span>
               <span className="block font-mono text-[10px] text-brand-muted uppercase tracking-[0.15em]">
                 {c.resultLabel}
               </span>
               {"resultSub" in c && c.resultSub && (
-                <span className="block font-mono text-[10px] text-brand-red mt-1 tracking-[0.1em]">
+                <span className="block font-mono text-[10px] text-brand-red mt-1.5 tracking-[0.1em]">
                   {c.resultSub}
                 </span>
               )}

@@ -10,7 +10,7 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 80);
+    const fn = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
@@ -19,26 +19,27 @@ export default function Nav() {
     <header
       className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500"
       style={{
-        background: scrolled ? "rgba(10,10,10,0.92)" : "transparent",
-        backdropFilter: scrolled ? "blur(20px)" : "none",
+        background: scrolled ? "rgba(10,10,10,0.95)" : "transparent",
+        backdropFilter: scrolled ? "blur(24px)" : "none",
         borderBottom: scrolled ? "1px solid #2A2A2A" : "1px solid transparent",
       }}
     >
       <Container as="nav" className="py-5 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="font-display text-[28px] tracking-[3px] text-white no-underline">
+        <a href="#" className="font-display text-[26px] tracking-[3px] text-white no-underline hover:opacity-80 transition-opacity duration-200">
           STUDIO <span className="text-brand-red">BRAVE</span>
         </a>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex gap-8 list-none">
+        <ul className="hidden md:flex gap-10 list-none">
           {NAV_LINKS.map((link) => (
             <li key={link.label}>
               <a
                 href={link.href}
-                className="text-brand-muted text-[13px] uppercase tracking-[0.08em] font-medium no-underline transition-colors duration-200 hover:text-white"
+                className="relative text-brand-muted text-[12px] uppercase tracking-[0.12em] font-medium no-underline transition-colors duration-200 hover:text-white group"
               >
                 {link.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-brand-red transition-all duration-300 group-hover:w-full" />
               </a>
             </li>
           ))}
@@ -49,7 +50,7 @@ export default function Nav() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center gap-2 bg-brand-red text-white text-[11px] font-bold uppercase tracking-[2px] px-4 py-2.5 transition-all duration-200 hover:brightness-110"
+          className="hidden md:inline-flex items-center gap-2 bg-brand-red text-white text-[10px] font-bold uppercase tracking-[2px] px-5 py-2.5 transition-all duration-200 hover:brightness-110"
         >
           Falar com Yuri
         </a>
@@ -79,20 +80,20 @@ export default function Nav() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.25 }}
-            className="md:hidden border-t border-brand-border"
-            style={{ background: "rgba(10,10,10,0.98)", backdropFilter: "blur(20px)" }}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="md:hidden border-t border-brand-border overflow-hidden"
+            style={{ background: "rgba(10,10,10,0.98)", backdropFilter: "blur(24px)" }}
           >
-            <ul className="list-none px-6 py-6 flex flex-col gap-6">
+            <ul className="list-none px-6 py-8 flex flex-col gap-6">
               {NAV_LINKS.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="text-brand-text text-[15px] uppercase tracking-[0.1em] font-medium no-underline"
+                    className="text-brand-text text-[16px] uppercase tracking-[0.1em] font-medium no-underline hover:text-brand-red transition-colors duration-200"
                   >
                     {link.label}
                   </a>
@@ -103,7 +104,7 @@ export default function Nav() {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex bg-brand-red text-white text-[11px] font-bold uppercase tracking-[2px] px-4 py-3"
+                  className="inline-flex bg-brand-red text-white text-[11px] font-bold uppercase tracking-[2px] px-5 py-3 hover:brightness-110 transition-all duration-200"
                 >
                   Falar com Yuri
                 </a>
