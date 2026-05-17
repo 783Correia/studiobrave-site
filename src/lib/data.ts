@@ -39,7 +39,7 @@ export type Product = {
 
 export const PRODUCTS: Product[] = [
   {
-    tag: "Entrada — R$ 3.500",
+    tag: "Entrada",
     name: "Brave Start",
     tagline: "Presença digital com posicionamento certo desde o primeiro dia.",
     featured: false,
@@ -52,7 +52,7 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
-    tag: "Organização — R$ 5.500",
+    tag: "Organização",
     name: "Brave Core",
     tagline: "Lead que chega ao WhatsApp já sabe o que você faz e por que te escolher.",
     featured: false,
@@ -67,7 +67,7 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
-    tag: "Gestão — R$ 2.500/mês",
+    tag: "Gestão",
     name: "Brave Scale",
     tagline: "Gestão contínua para o negócio crescer sem você precisar gerenciar o digital.",
     featured: false,
@@ -83,7 +83,7 @@ export const PRODUCTS: Product[] = [
 ];
 
 export const BRAVE_SYSTEM = {
-  tag: "Sistema — R$ 8.000 setup + R$ 3.500/mês",
+  tag: "Sistema",
   name: "Brave System",
   tagline: "Não deixa dinheiro na mesa. Nenhum lead se perde por falta de processo.",
   badge: "Topo da cadeia",
