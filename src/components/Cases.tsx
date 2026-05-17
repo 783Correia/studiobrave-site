@@ -2,61 +2,32 @@
 
 import { motion } from "framer-motion";
 import { CASES } from "@/lib/data";
-
-const ease = [0.22, 1, 0.36, 1] as const;
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
-};
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
-};
+import { fadeUp, stagger } from "@/lib/motion";
+import Container from "@/components/ui/Container";
+import SectionLabel from "@/components/ui/SectionLabel";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export default function Cases() {
   return (
-    <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-24 md:py-32">
-      {/* Eyebrow */}
-      <motion.p
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeUp}
-        className="font-mono text-[11px] text-brand-red uppercase tracking-[0.3em] mb-6"
-      >
-        03 — RESULTADOS REAIS
-      </motion.p>
+    <Container className="py-24 md:py-32">
+      <AnimatedSection>
+        <SectionLabel className="text-brand-red">03 — RESULTADOS REAIS</SectionLabel>
+      </AnimatedSection>
 
-      {/* Headline */}
-      <motion.h2
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeUp}
-        className="font-display text-[clamp(40px,6vw,80px)] leading-[0.9] text-white mb-4"
-      >
-        NÃO É PROMESSA.<br />
-        É O QUE JÁ ACONTECEU.
-      </motion.h2>
+      <AnimatedSection>
+        <h2 className="font-display text-[clamp(40px,6vw,80px)] leading-[0.9] text-white mb-4">
+          NÃO É PROMESSA.<br />
+          É O QUE JÁ ACONTECEU.
+        </h2>
+      </AnimatedSection>
 
-      {/* Subtext */}
-      <motion.p
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeUp}
-        className="text-brand-muted text-[15px] mb-16 max-w-[480px]"
-      >
-        Cada número aqui é rastreável. Nenhuma estimativa.
-      </motion.p>
+      <AnimatedSection>
+        <p className="text-brand-muted text-[15px] mb-16 max-w-[480px]">
+          Cada número aqui é rastreável. Nenhuma estimativa.
+        </p>
+      </AnimatedSection>
 
-      {/* Cases grid */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+      <AnimatedSection
         variants={stagger}
         className="grid grid-cols-1 md:grid-cols-3 gap-px bg-brand-border border border-brand-border"
       >
@@ -66,7 +37,6 @@ export default function Cases() {
             variants={fadeUp}
             className="bg-brand-card p-8 md:p-10 flex flex-col"
           >
-            {/* Client info */}
             <div className="mb-8">
               <span className="block font-display text-[20px] text-white tracking-wide leading-none mb-1">
                 {c.client}
@@ -76,12 +46,10 @@ export default function Cases() {
               </span>
             </div>
 
-            {/* Segment */}
             <p className="text-brand-muted text-[13px] mb-6 leading-snug">
               {c.segment}
             </p>
 
-            {/* Action */}
             <div className="mb-8">
               <span className="block font-mono text-[9px] text-brand-muted uppercase tracking-[0.2em] mb-2">
                 Ação:
@@ -91,10 +59,8 @@ export default function Cases() {
               </p>
             </div>
 
-            {/* Divider */}
             <div className="w-full h-px bg-brand-border mb-8 mt-auto" />
 
-            {/* Result */}
             <div>
               <span className="block font-display text-[72px] md:text-[80px] text-brand-red leading-none mb-1">
                 {c.result}
@@ -110,7 +76,7 @@ export default function Cases() {
             </div>
           </motion.div>
         ))}
-      </motion.div>
-    </div>
+      </AnimatedSection>
+    </Container>
   );
 }

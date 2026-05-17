@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { NAV_LINKS, WHATSAPP_URL } from "@/lib/data";
+import Container from "@/components/ui/Container";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,7 +24,7 @@ export default function Nav() {
         borderBottom: scrolled ? "1px solid #2A2A2A" : "1px solid transparent",
       }}
     >
-      <nav className="max-w-[1200px] mx-auto px-6 md:px-12 py-5 flex items-center justify-between">
+      <Container as="nav" className="py-5 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="font-display text-[28px] tracking-[3px] text-white no-underline">
           STUDIO <span className="text-brand-red">BRAVE</span>
@@ -72,7 +73,7 @@ export default function Nav() {
             style={{ transform: menuOpen ? "rotate(-45deg) translateY(-6.5px)" : "none" }}
           />
         </button>
-      </nav>
+      </Container>
 
       {/* Mobile menu */}
       <AnimatePresence>

@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import { WHATSAPP_URL } from "@/lib/data";
-
-const ease = [0.22, 1, 0.36, 1] as const;
+import { ease } from "@/lib/motion";
+import Button from "@/components/ui/Button";
 
 export default function Hero() {
   return (
@@ -61,14 +61,15 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 1.0, ease }}
           className="md:hidden mt-10"
         >
-          <a
+          <Button
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex w-full justify-center bg-brand-red text-white font-display text-xl tracking-[0.1em] px-8 py-4 hover:brightness-110 transition-all"
+            size="md"
+            fullWidth
           >
             FALAR COM YURI →
-          </a>
+          </Button>
         </motion.div>
       </div>
     </section>

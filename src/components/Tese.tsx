@@ -2,54 +2,27 @@
 
 import { motion } from "framer-motion";
 import { PILLARS } from "@/lib/data";
-
-const ease = [0.22, 1, 0.36, 1] as const;
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
-};
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
+import { fadeUp, stagger } from "@/lib/motion";
+import Container from "@/components/ui/Container";
+import SectionLabel from "@/components/ui/SectionLabel";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export default function Tese() {
   return (
-    <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-24 md:py-32">
-      {/* Eyebrow */}
-      <motion.p
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeUp}
-        className="font-mono text-[11px] text-brand-red uppercase tracking-[0.3em] mb-6"
-      >
-        01 — POR QUÊ EXISTIMOS
-      </motion.p>
+    <Container className="py-24 md:py-32">
+      <AnimatedSection>
+        <SectionLabel className="text-brand-red">01 — POR QUÊ EXISTIMOS</SectionLabel>
+      </AnimatedSection>
 
-      {/* Headline */}
-      <motion.h2
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeUp}
-        className="font-display text-[clamp(40px,6vw,80px)] leading-[0.9] text-white mb-16"
-      >
-        O NEGÓCIO É BOM.<br />
-        MAS NÃO PARECE BOM.
-      </motion.h2>
+      <AnimatedSection>
+        <h2 className="font-display text-[clamp(40px,6vw,80px)] leading-[0.9] text-white mb-16">
+          O NEGÓCIO É BOM.<br />
+          MAS NÃO PARECE BOM.
+        </h2>
+      </AnimatedSection>
 
       {/* Card — o problema */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeUp}
-        className="bg-brand-card border border-brand-border p-10 md:p-12 mb-6"
-        style={{ borderLeft: "4px solid #C41E1E" }}
-      >
+      <AnimatedSection className="bg-brand-card border border-brand-border p-10 md:p-12 mb-6 border-l-[4px] border-l-brand-red">
         <p className="text-brand-text text-[16px] md:text-[18px] leading-relaxed mb-6">
           A maioria dos bons negócios parece pequena no digital. Não por falta
           de qualidade — mas por falta de estrutura.
@@ -59,20 +32,11 @@ export default function Tese() {
           parecem desorganizados ou amadores. Esse desalinhamento custa
           autoridade, custa confiança e mantém o empresário refém da indicação.
         </p>
-      </motion.div>
+      </AnimatedSection>
 
       {/* Card — a distinção */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeUp}
-        className="bg-brand-card2 border border-brand-border p-10 md:p-12 mb-20"
-        style={{ borderLeft: "4px solid #333333" }}
-      >
-        <p className="font-mono text-[11px] text-brand-muted uppercase tracking-[0.2em] mb-5">
-          A diferença que muda o jogo
-        </p>
+      <AnimatedSection className="bg-brand-card2 border border-brand-border p-10 md:p-12 mb-20 border-l-[4px] border-l-[#333333]">
+        <SectionLabel className="mb-5">A diferença que muda o jogo</SectionLabel>
         <p className="text-brand-text text-[15px] md:text-[17px] leading-relaxed mb-4">
           Agência entrega post. Nós entregamos processo.
         </p>
@@ -84,13 +48,10 @@ export default function Tese() {
             Não vendemos marketing. Vendemos estrutura + percepção + sistema.
           </strong>
         </p>
-      </motion.div>
+      </AnimatedSection>
 
       {/* 3 Pillars */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+      <AnimatedSection
         variants={stagger}
         className="grid grid-cols-1 md:grid-cols-3 gap-px bg-brand-border border border-brand-border"
       >
@@ -111,7 +72,7 @@ export default function Tese() {
             </p>
           </motion.div>
         ))}
-      </motion.div>
-    </div>
+      </AnimatedSection>
+    </Container>
   );
 }

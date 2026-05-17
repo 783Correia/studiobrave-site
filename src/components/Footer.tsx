@@ -1,8 +1,9 @@
+import Container from "@/components/ui/Container";
+
 export default function Footer() {
   return (
     <footer className="border-t border-brand-border bg-brand-black">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-12 flex flex-col md:flex-row md:items-start md:justify-between gap-8">
-        {/* Logo + tagline */}
+      <Container className="py-12 flex flex-col md:flex-row md:items-start md:justify-between gap-8">
         <div>
           <p className="font-display text-[36px] text-white tracking-[3px] leading-none mb-2">
             STUDIO <span className="text-brand-red">BRAVE</span>
@@ -12,7 +13,6 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Info */}
         <div className="flex flex-col gap-1">
           <p className="font-mono text-[12px] text-brand-muted">
             Fundador: Yuri Correia
@@ -33,13 +33,14 @@ export default function Footer() {
             studiobrave.com.br
           </a>
         </div>
-      </div>
+      </Container>
 
-      {/* Copyright */}
-      <div className="border-t border-brand-border max-w-[1200px] mx-auto px-6 md:px-12 py-5">
-        <p className="font-mono text-[11px] text-brand-muted">
-          © 2026 Studio Brave. Todos os direitos reservados.
-        </p>
+      <div className="border-t border-brand-border">
+        <Container className="py-5">
+          <p className="font-mono text-[11px] text-brand-muted">
+            © 2026 Studio Brave. Todos os direitos reservados.
+          </p>
+        </Container>
       </div>
     </footer>
   );
