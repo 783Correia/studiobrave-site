@@ -56,26 +56,6 @@ export default function CTA() {
             </p>
           </motion.div>
 
-          {/* Stats row */}
-          <motion.div
-            variants={fadeUp}
-            className="mt-24 pt-12 border-t border-brand-border w-full grid grid-cols-3 gap-8"
-          >
-            {[
-              { num: "3+", label: "Clientes ativos" },
-              { num: "96+", label: "Agentes IA no sistema" },
-              { num: "100%", label: "Foco em resultado" },
-            ].map((stat) => (
-              <div key={stat.label} className="flex flex-col items-center gap-1">
-                <span className="font-display text-[48px] md:text-[64px] text-white leading-none">
-                  {stat.num}
-                </span>
-                <span className="font-mono text-[10px] text-brand-muted uppercase tracking-[0.2em]">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
-          </motion.div>
         </Container>
       </AnimatedSection>
     </section>
