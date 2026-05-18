@@ -18,35 +18,35 @@ export default function Tese() {
         <h2 className="font-display text-[clamp(44px,6.5vw,88px)] leading-[0.88] text-white mb-16">
           O PROBLEMA<br />
           NÃO ERA O GESTOR.<br />
-          <span className="text-brand-red">ERA O SITE.</span>
+          <span className="text-gradient-red">ERA O SITE.</span>
         </h2>
       </AnimatedSection>
 
-      {/* Card — o problema real */}
+      {/* Card — problema */}
       <AnimatedSection>
-        <div
-          className="bg-brand-card border border-brand-border p-10 md:p-14 mb-4 transition-colors duration-300 hover:bg-brand-card2"
-          style={{ borderLeft: "4px solid #C41E1E" }}
-        >
+        <div className="card-glass p-10 md:p-14 mb-4 cursor-default">
+          {/* Accent line top */}
+          <div className="h-px mb-8" style={{
+            background: "linear-gradient(90deg, #C41E1E, rgba(196,30,30,0.1) 60%, transparent)"
+          }} />
           <p className="text-brand-text text-[17px] md:text-[20px] leading-relaxed mb-5 font-light">
             Você investe em tráfego. O gestor é bom. As campanhas rodam.
             Mas o resultado não vem — e ninguém sabe por quê.
           </p>
           <p className="text-brand-muted text-[15px] leading-relaxed">
-            Na maioria das vezes, o gargalo não está no anúncio.
-            Está no destino. Site lento, sem estrutura de conversão,
-            sem GMB configurado, sem rastreamento real.
+            Na maioria das vezes o gargalo não está no anúncio. Está no destino.
+            Site lento, sem estrutura de conversão, sem GMB configurado, sem rastreamento real.
             Você paga pelo clique e desperdiça 90% do que chegou.
           </p>
         </div>
       </AnimatedSection>
 
-      {/* Card — o cenário 2026 */}
+      {/* Card — 2026 */}
       <AnimatedSection>
-        <div
-          className="bg-brand-card2 border border-brand-border p-10 md:p-14 mb-24 transition-colors duration-300 hover:border-brand-border/60"
-          style={{ borderLeft: "4px solid #333333" }}
-        >
+        <div className="card-glass p-10 md:p-14 mb-20 cursor-default">
+          <div className="h-px mb-8" style={{
+            background: "linear-gradient(90deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03) 60%, transparent)"
+          }} />
           <SectionLabel className="mb-5">O que mudou em 2026</SectionLabel>
           <p className="text-brand-text text-[16px] md:text-[18px] leading-relaxed mb-4">
             O Google agora responde antes de mostrar qualquer link.
@@ -63,20 +63,17 @@ export default function Tese() {
       </AnimatedSection>
 
       {/* 3 Pillars */}
-      <AnimatedSection
-        variants={stagger}
-        className="grid grid-cols-1 md:grid-cols-3 gap-px bg-brand-border border border-brand-border"
-      >
+      <AnimatedSection variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {PILLARS.map((pillar) => (
           <motion.div
             key={pillar.num}
             variants={fadeUp}
-            className="bg-brand-card p-8 md:p-12 transition-colors duration-300 hover:bg-brand-card2 group cursor-default"
+            className="card-glass p-8 md:p-10 cursor-default"
           >
-            <span className="block font-display text-[72px] leading-none text-brand-border group-hover:text-brand-red/20 transition-colors duration-300 mb-4">
+            <span className="block font-display text-[64px] leading-none text-gradient-red opacity-30 mb-4">
               {pillar.num}
             </span>
-            <h3 className="font-display text-[24px] text-white tracking-wide mb-3">
+            <h3 className="font-display text-[22px] text-white tracking-wide mb-3">
               {pillar.title}
             </h3>
             <p className="text-brand-muted text-[14px] leading-relaxed">

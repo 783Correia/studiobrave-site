@@ -17,29 +17,31 @@ export default function Cases() {
       <AnimatedSection>
         <h2 className="font-display text-[clamp(44px,6.5vw,88px)] leading-[0.88] text-white mb-4">
           NÃO É PROMESSA.<br />
-          É O QUE JÁ ACONTECEU.
+          <span className="text-gradient-red">É O QUE JÁ ACONTECEU.</span>
         </h2>
       </AnimatedSection>
 
       <AnimatedSection>
         <p className="text-brand-muted text-[15px] mb-20 max-w-[480px]">
-          Cada número aqui é rastreável. Nenhuma estimativa.
+          Cada número é rastreável. Nenhuma estimativa.
         </p>
       </AnimatedSection>
 
-      <AnimatedSection
-        variants={stagger}
-        className="grid grid-cols-1 md:grid-cols-3 gap-px bg-brand-border border border-brand-border"
-      >
+      <AnimatedSection variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {CASES.map((c) => (
           <motion.div
             key={c.client}
             variants={fadeUp}
-            className="bg-brand-card p-8 md:p-10 flex flex-col group transition-colors duration-300 hover:bg-brand-card2 cursor-default"
+            className="card-glass p-8 md:p-10 flex flex-col cursor-default"
           >
+            {/* Top accent */}
+            <div className="h-px mb-6" style={{
+              background: "linear-gradient(90deg, #C41E1E, rgba(196,30,30,0.08) 70%, transparent)"
+            }} />
+
             {/* Client info */}
-            <div className="mb-6">
-              <span className="block font-display text-[22px] text-white tracking-wide leading-none mb-1.5">
+            <div className="mb-5">
+              <span className="block font-display text-[20px] text-white tracking-wide leading-none mb-1">
                 {c.client}
               </span>
               <span className="block font-mono text-[10px] text-brand-muted uppercase tracking-[0.15em]">
@@ -47,22 +49,22 @@ export default function Cases() {
               </span>
             </div>
 
-            <p className="text-brand-muted text-[13px] mb-6 leading-snug">
-              {c.segment}
-            </p>
+            <p className="text-brand-muted text-[13px] mb-5 leading-snug">{c.segment}</p>
 
-            <div className="mb-8">
-              <span className="block font-mono text-[9px] text-brand-muted uppercase tracking-[0.25em] mb-2">
-                O que fizemos:
+            <div className="mb-6">
+              <span className="block font-mono text-[9px] text-brand-muted uppercase tracking-[0.25em] mb-1.5">
+                O que fizemos
               </span>
-              <p className="text-[#888888] text-[13px] leading-snug">
-                {c.action}
-              </p>
+              <p className="text-[#888] text-[13px] leading-snug">{c.action}</p>
             </div>
 
             <div className="mt-auto">
-              <div className="w-8 h-[2px] bg-brand-red mb-6 group-hover:w-16 transition-all duration-500" />
-              <span className="block font-display text-[80px] md:text-[96px] text-brand-red leading-[0.85] mb-2">
+              <div className="w-6 h-[1px] mb-5"
+                style={{ background: "linear-gradient(90deg, #C41E1E, transparent)" }}
+              />
+              <span
+                className="block font-display text-[72px] md:text-[88px] leading-[0.85] mb-2 text-gradient-red"
+              >
                 {c.result}
               </span>
               <span className="block font-mono text-[10px] text-brand-muted uppercase tracking-[0.15em]">

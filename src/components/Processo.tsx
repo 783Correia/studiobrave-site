@@ -18,7 +18,7 @@ export default function Processo() {
         <h2 className="font-display text-[clamp(44px,6.5vw,88px)] leading-[0.88] text-white mb-6">
           DO BRIEFING<br />
           AO NO AR<br />
-          <span className="text-brand-red">EM 10 DIAS.</span>
+          <span className="text-gradient-red">EM 10 DIAS.</span>
         </h2>
       </AnimatedSection>
 
@@ -30,32 +30,52 @@ export default function Processo() {
       </AnimatedSection>
 
       {/* Timeline */}
-      <AnimatedSection
-        variants={stagger}
-        className="relative flex flex-col gap-0"
-      >
+      <AnimatedSection variants={stagger} className="relative flex flex-col gap-0">
         {/* Vertical line */}
-        <div className="absolute left-5 top-5 bottom-5 w-px bg-brand-border" />
+        <div
+          className="absolute left-5 top-5 bottom-5 w-px pointer-events-none"
+          style={{ background: "linear-gradient(to bottom, rgba(196,30,30,0.4), rgba(255,255,255,0.05) 80%, transparent)" }}
+        />
 
         {PROCESS_STEPS.map((step, i) => (
           <motion.div
             key={step.num}
             variants={fadeUp}
-            className={`relative flex items-start gap-8 group ${i < PROCESS_STEPS.length - 1 ? "pb-16" : ""}`}
+            className={`relative flex items-start gap-8 group ${i < PROCESS_STEPS.length - 1 ? "pb-14" : ""}`}
           >
             {/* Node */}
-            <div className="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-brand-black border border-brand-border group-hover:border-brand-red group-hover:bg-brand-red/10 transition-all duration-300 flex items-center justify-center">
-              <span className="font-mono text-[10px] text-brand-muted group-hover:text-brand-red transition-colors duration-300 tracking-widest">
+            <div
+              className="relative z-10 flex-shrink-0 w-10 h-10 flex items-center justify-center transition-all duration-300"
+              style={{
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.1)",
+                borderRadius: "50%",
+              }}
+            >
+              <span
+                className="font-mono text-[10px] tracking-widest transition-colors duration-300"
+                style={{ color: "#555" }}
+              >
                 {step.num}
               </span>
+
+              {/* Glow ring on hover — CSS group-hover via inline style trick */}
+              <div
+                className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{
+                  boxShadow: "0 0 0 1px rgba(196,30,30,0.5), 0 0 16px rgba(196,30,30,0.2)",
+                }}
+              />
             </div>
 
             {/* Content */}
-            <div className="pt-1.5">
-              <h3 className="font-display text-[30px] md:text-[36px] text-white tracking-wide leading-none mb-3">
+            <div className="pt-1.5 pb-2">
+              <h3
+                className="font-display text-[28px] md:text-[34px] text-white tracking-wide leading-none mb-3 transition-colors duration-300 group-hover:text-brand-red"
+              >
                 {step.title}
               </h3>
-              <p className="text-brand-muted text-[15px] leading-relaxed max-w-[560px]">
+              <p className="text-brand-muted text-[14px] leading-relaxed max-w-[520px]">
                 {step.desc}
               </p>
             </div>

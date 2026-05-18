@@ -58,6 +58,45 @@
   a { text-decoration: none; }
 }
 
+/* ── GLASS CARDS ── */
+.card-glass {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  transition: border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+}
+.card-glass:hover {
+  background: rgba(255,255,255,0.055);
+  border-color: rgba(196,30,30,0.28);
+  box-shadow: 0 0 32px rgba(196,30,30,0.07), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.card-glass-featured {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(196,30,30,0.35);
+  border-radius: 12px;
+  box-shadow: 0 0 48px rgba(196,30,30,0.09), inset 0 1px 0 rgba(196,30,30,0.12);
+}
+
+/* ── GRADIENT TEXT ── */
+.text-gradient-red {
+  background: linear-gradient(135deg, #C41E1E 0%, #E84444 55%, #C41E1E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes float-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.55; transform: scale(1.18); }
+}
+@keyframes float-glow-alt {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 1; transform: scale(1.12); }
+}
+.animate-glow-a { animation: float-glow 7s ease-in-out infinite; }
+.animate-glow-b { animation: float-glow-alt 9s ease-in-out infinite 1.5s; }
+
 /* Noise grain overlay */
 body::before {
   content: '';
