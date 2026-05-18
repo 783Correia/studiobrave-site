@@ -80,7 +80,7 @@ export default function Hero() {
             rel="noopener noreferrer"
             size="md"
           >
-            FALAR COM YURI →
+            VER SE FAZ SENTIDO →
           </Button>
           <a
             href="#tese"
@@ -126,7 +126,7 @@ export default function Hero() {
             size="md"
             fullWidth
           >
-            FALAR COM YURI →
+            VER SE FAZ SENTIDO →
           </Button>
         </motion.div>
       </div>

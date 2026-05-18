@@ -52,7 +52,7 @@ export default function Nav() {
           rel="noopener noreferrer"
           className="hidden md:inline-flex items-center gap-2 bg-brand-red text-white text-[10px] font-bold uppercase tracking-[2px] px-5 py-2.5 transition-all duration-200 hover:brightness-110"
         >
-          Falar com Yuri
+          Ver se faz sentido
         </a>
 
         {/* Hamburger */}
@@ -106,7 +106,7 @@ export default function Nav() {
                   rel="noopener noreferrer"
                   className="inline-flex bg-brand-red text-white text-[11px] font-bold uppercase tracking-[2px] px-5 py-3 hover:brightness-110 transition-all duration-200"
                 >
-                  Falar com Yuri
+                  Ver se faz sentido
                 </a>
               </li>
             </ul>

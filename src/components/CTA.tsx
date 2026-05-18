@@ -58,7 +58,7 @@ export default function CTA() {
               rel="noopener noreferrer"
               size="lg"
             >
-              FALAR COM YURI NO WHATSAPP →
+              VER SE FAZ SENTIDO → WHATSAPP
             </Button>
 
             <p className="font-mono text-[10px] text-brand-muted tracking-[0.15em] uppercase">
