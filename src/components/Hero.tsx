@@ -40,7 +40,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2, ease }}
           className="font-mono text-[11px] text-brand-red uppercase tracking-[0.3em] mb-8"
         >
-          STUDIO BRAVE · ESTRUTURA E SISTEMA DE NEGÓCIO · 2026
+          STUDIO BRAVE · PRESENÇA DIGITAL · 2026
         </motion.p>
 
         {/* Headline */}
@@ -48,10 +48,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.35, ease }}
-          className="font-display text-[clamp(80px,13vw,172px)] leading-[0.88] text-white mb-8"
+          className="font-display text-[clamp(72px,11vw,152px)] leading-[0.88] text-white mb-8"
         >
-          MOTORES<br />
-          <span className="text-brand-red">E</span> PILOTOS.
+          O CLIENTE JÁ<br />
+          <span className="text-brand-red">DECIDIU</span><br />
+          ANTES DE CLICAR.
         </motion.h1>
 
         {/* Subheadline */}
@@ -61,8 +62,9 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.5, ease }}
           className="text-[#999999] text-[17px] md:text-[19px] font-light max-w-[560px] mb-12 leading-[1.7]"
         >
-          A Brave não é uma agência. Ela constrói a presença digital que faz
-          o seu negócio aparecer e converter — no Google, no Maps, no ChatGPT.
+          Em 2026, 60% das buscas terminam sem clique. O Google responde com IA
+          antes de mostrar qualquer site. A Studio Brave constrói a estrutura que
+          aparece nessa resposta — e converte quem já chegou decidido.
         </motion.p>
 
         {/* CTA row — desktop */}
@@ -84,21 +86,30 @@ export default function Hero() {
             href="#tese"
             className="font-mono text-[11px] text-brand-muted uppercase tracking-[0.25em] hover:text-white transition-colors duration-200"
           >
-            como funciona ↓
+            ver resultados ↓
           </a>
         </motion.div>
 
-        {/* Divider + badge */}
+        {/* Proof strip */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8, ease }}
-          className="flex items-center gap-4"
+          className="flex flex-wrap items-center gap-x-8 gap-y-3"
         >
-          <span className="block w-[48px] h-px bg-brand-red flex-shrink-0" />
-          <span className="font-mono text-[10px] text-brand-red uppercase tracking-[0.25em]">
-            10 vagas de inauguração abertas
-          </span>
+          {[
+            { val: "+68%", label: "conversão" },
+            { val: "R$17,50", label: "custo por lead" },
+            { val: "10 dias", label: "do zero ao no ar" },
+          ].map((stat) => (
+            <div key={stat.val} className="flex items-center gap-3">
+              <span className="block w-[1px] h-6 bg-brand-border hidden sm:block" />
+              <div>
+                <span className="block font-display text-[22px] text-white leading-none">{stat.val}</span>
+                <span className="block font-mono text-[9px] text-brand-muted uppercase tracking-[0.2em]">{stat.label}</span>
+              </div>
+            </div>
+          ))}
         </motion.div>
 
         {/* Mobile CTA */}
@@ -106,7 +117,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0, ease }}
-          className="md:hidden mt-10"
+          className="md:hidden mt-10 flex flex-col gap-4"
         >
           <Button
             href={WHATSAPP_URL}

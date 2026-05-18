@@ -25,21 +25,31 @@ export default function CTA() {
 
       <AnimatedSection variants={stagger} className="relative">
         <Container className="py-32 md:py-48 flex flex-col items-center text-center">
+
           <motion.p
             variants={fadeUp}
             className="font-mono text-[11px] text-brand-muted uppercase tracking-[0.3em] mb-10"
           >
-            — Primeiro contato: 15 minutos. Sem compromisso.
+            — Aceite limitado. Poucos projetos por vez.
           </motion.p>
 
           <motion.h2
             variants={fadeUp}
-            className="font-display text-[clamp(60px,9vw,132px)] leading-[0.88] text-white mb-14"
+            className="font-display text-[clamp(60px,9vw,132px)] leading-[0.88] text-white mb-8"
           >
-            PRONTO PARA<br />
-            PARECER O QUE<br />
-            <span className="text-brand-red">VOCÊ JÁ É?</span>
+            SEU NEGÓCIO<br />
+            APARECE ONDE<br />
+            <span className="text-brand-red">O CLIENTE BUSCA?</span>
           </motion.h2>
+
+          <motion.p
+            variants={fadeUp}
+            className="text-brand-muted text-[16px] max-w-[480px] mb-14 leading-relaxed"
+          >
+            Se a resposta for "não sei" ou "acho que não" —
+            é disso que a Brave cuida. Uma conversa de 15 minutos
+            mostra exatamente o que está faltando.
+          </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-col items-center gap-5">
             <Button
@@ -52,7 +62,7 @@ export default function CTA() {
             </Button>
 
             <p className="font-mono text-[10px] text-brand-muted tracking-[0.15em] uppercase">
-              Resposta em até 24h · Sem compromisso
+              15 minutos · Sem compromisso · Resposta em até 24h
             </p>
           </motion.div>
 

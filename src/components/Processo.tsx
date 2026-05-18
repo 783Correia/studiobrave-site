@@ -15,10 +15,18 @@ export default function Processo() {
       </AnimatedSection>
 
       <AnimatedSection>
-        <h2 className="font-display text-[clamp(44px,6.5vw,88px)] leading-[0.88] text-white mb-24">
-          5 ETAPAS.<br />
-          SEM SURPRESA.
+        <h2 className="font-display text-[clamp(44px,6.5vw,88px)] leading-[0.88] text-white mb-6">
+          DO BRIEFING<br />
+          AO NO AR<br />
+          <span className="text-brand-red">EM 10 DIAS.</span>
         </h2>
+      </AnimatedSection>
+
+      <AnimatedSection>
+        <p className="text-brand-muted text-[15px] md:text-[16px] max-w-[480px] mb-24 leading-relaxed">
+          Sem reunião que não termina, sem esperar aprovação duas semanas,
+          sem surpresa no final. Cada etapa tem prazo e entregável definido.
+        </p>
       </AnimatedSection>
 
       {/* Timeline */}

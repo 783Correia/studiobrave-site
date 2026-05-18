@@ -118,27 +118,27 @@ export const CASES = [
 export const PROCESS_STEPS = [
   {
     num: "01",
-    title: "Primeiro Contato",
-    desc: "15 minutos. Entendemos se faz sentido para os dois lados. Não é reunião de vendas. É filtro.",
+    title: "Conversa de 15 minutos",
+    desc: "Entendemos se faz sentido para os dois lados. Não é reunião de vendas — é filtro. A Brave não aceita todo cliente. Só quem o sistema faz sentido de verdade.",
   },
   {
     num: "02",
-    title: "Diagnóstico",
-    desc: "Analisamos o que você já tem: canais, posicionamento, processo de venda. Respondemos as perguntas certas antes de propor qualquer coisa.",
+    title: "Diagnóstico do que existe",
+    desc: "Analisamos site, GMB, rastreamento, posicionamento e processo de vendas. Mapeamos exatamente onde o lead está escapando e o que precisa mudar primeiro.",
   },
   {
     num: "03",
-    title: "Proposta",
-    desc: "Personalizada. Com diagnóstico, solução, entregáveis, cronograma e condições. Prazo de validade: 7 dias.",
+    title: "Proposta com número",
+    desc: "Proposta personalizada com entregáveis, cronograma e investimento. Sem pacote genérico. Prazo de validade: 7 dias. Você decide com tudo na mesa.",
   },
   {
     num: "04",
-    title: "Onboarding",
-    desc: "Contrato assinado e entrada paga antes de qualquer execução. SLA definido. Acessos coletados. Briefing aprovado.",
+    title: "Contrato e início",
+    desc: "Contrato assinado, entrada paga, acessos coletados. A execução começa no próximo dia útil. DNA do negócio montado — toda entrega futura usa essa memória.",
   },
   {
     num: "05",
-    title: "Execução e Relatório",
-    desc: "Cada entregável tem um motivo de existir dentro do plano. Relatório mensal com dado real. Reunião de 30 minutos. Sem surpresa.",
+    title: "No ar em 10 dias",
+    desc: "Site no ar, GMB configurado, tracking rodando, funil ativo. Relatório no 30° dia com dado real: conversão, ligação, CPL. Reunião de 30 minutos com número na mão.",
   },
 ];

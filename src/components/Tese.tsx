@@ -11,49 +11,52 @@ export default function Tese() {
   return (
     <Container className="py-28 md:py-40">
       <AnimatedSection>
-        <SectionLabel className="text-brand-red">01 — POR QUÊ EXISTIMOS</SectionLabel>
+        <SectionLabel className="text-brand-red">01 — O PROBLEMA</SectionLabel>
       </AnimatedSection>
 
       <AnimatedSection>
         <h2 className="font-display text-[clamp(44px,6.5vw,88px)] leading-[0.88] text-white mb-16">
-          O NEGÓCIO É BOM.<br />
-          MAS NÃO PARECE BOM.
+          O PROBLEMA<br />
+          NÃO ERA O GESTOR.<br />
+          <span className="text-brand-red">ERA O SITE.</span>
         </h2>
       </AnimatedSection>
 
-      {/* Card — o problema */}
+      {/* Card — o problema real */}
       <AnimatedSection>
         <div
           className="bg-brand-card border border-brand-border p-10 md:p-14 mb-4 transition-colors duration-300 hover:bg-brand-card2"
           style={{ borderLeft: "4px solid #C41E1E" }}
         >
-          <p className="text-brand-text text-[17px] md:text-[19px] leading-relaxed mb-5 font-light">
-            A maioria dos bons negócios parece pequena no digital. Não por falta
-            de qualidade — mas por falta de estrutura.
+          <p className="text-brand-text text-[17px] md:text-[20px] leading-relaxed mb-5 font-light">
+            Você investe em tráfego. O gestor é bom. As campanhas rodam.
+            Mas o resultado não vem — e ninguém sabe por quê.
           </p>
           <p className="text-brand-muted text-[15px] leading-relaxed">
-            Empresários com resultado, faturamento e reputação que no digital
-            parecem desorganizados ou amadores. Esse desalinhamento custa
-            autoridade, custa confiança e mantém o empresário refém da indicação.
+            Na maioria das vezes, o gargalo não está no anúncio.
+            Está no destino. Site lento, sem estrutura de conversão,
+            sem GMB configurado, sem rastreamento real.
+            Você paga pelo clique e desperdiça 90% do que chegou.
           </p>
         </div>
       </AnimatedSection>
 
-      {/* Card — a distinção */}
+      {/* Card — o cenário 2026 */}
       <AnimatedSection>
         <div
           className="bg-brand-card2 border border-brand-border p-10 md:p-14 mb-24 transition-colors duration-300 hover:border-brand-border/60"
           style={{ borderLeft: "4px solid #333333" }}
         >
-          <SectionLabel className="mb-5">A diferença que muda o jogo</SectionLabel>
+          <SectionLabel className="mb-5">O que mudou em 2026</SectionLabel>
           <p className="text-brand-text text-[16px] md:text-[18px] leading-relaxed mb-4">
-            Agência entrega campanha. Nós entregamos sistema.
+            O Google agora responde antes de mostrar qualquer link.
+            O ChatGPT decide antes do clique acontecer.
           </p>
           <p className="text-brand-muted text-[15px] leading-relaxed">
-            Em 2026, 60% das buscas terminam sem clique — o Google responde com IA antes de mostrar qualquer site.
-            Quem aparece nessa resposta tem GMB completo, site indexável e conteúdo estruturado.{" "}
+            Quem aparece nessa resposta tem site indexável, GMB completo
+            e conteúdo estruturado. 99% das empresas brasileiras não têm isso ainda.{" "}
             <strong className="text-brand-text font-medium">
-              É exatamente isso que a Brave constrói.
+              Quem construir primeiro, domina.
             </strong>
           </p>
         </div>

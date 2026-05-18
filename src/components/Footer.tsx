@@ -1,4 +1,5 @@
 import Container from "@/components/ui/Container";
+import { WHATSAPP_URL } from "@/lib/data";
 
 export default function Footer() {
   return (
@@ -46,7 +47,9 @@ export default function Footer() {
             contato@studiobrave.com.br
           </a>
           <a
-            href="https://wa.me/5554999999999"
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="font-mono text-[13px] text-brand-red hover:text-brand-red-light transition-colors no-underline"
           >
             WhatsApp ↗
