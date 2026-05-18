@@ -115,6 +115,90 @@ export const CASES = [
   },
 ];
 
+export type PortfolioCase = {
+  name: string;
+  segmento: string;
+  resultado: string;
+  tag: string;
+  image: string;
+  url: string;
+};
+
+export const PORTFOLIO: PortfolioCase[] = [
+  {
+    name: "Jaco Locadora",
+    segmento: "Industrial · Plataformas elevatórias",
+    resultado: "+68% conversão · 1º no Google em 24h · 102 ações GMB/mês",
+    tag: "Web + SEO + GMB",
+    image: "/projects/jaco-locadora.png",
+    url: "https://www.jacolocadora.com.br/",
+  },
+  {
+    name: "Sales Embalagens",
+    segmento: "B2B · Embalagens",
+    resultado: "R$35k → R$165k de faturamento mensal",
+    tag: "Web + Tráfego",
+    image: "/projects/sales-emb.png",
+    url: "https://salesemb.com.br/",
+  },
+  {
+    name: "Torno Metal Everton Lopes",
+    segmento: "Agro · Indústria · B2B",
+    resultado: "70 leads qualificados por mês a R$8,34 cada",
+    tag: "E-commerce + SEO",
+    image: "/projects/torno-metal.png",
+    url: "https://tornometalevertonlopes.com.br/",
+  },
+  {
+    name: "Dieison Corazza",
+    segmento: "Imóveis · Alto padrão",
+    resultado: "Landing page de imóvel premium exclusivo",
+    tag: "Landing Page",
+    image: "/projects/palazzo-giardino.png",
+    url: "https://palazzo-giardino-private.vercel.app/",
+  },
+  {
+    name: "TecnoPlay",
+    segmento: "E-commerce · Produto digital",
+    resultado: "R$16k faturados · R$5k de renda mensal passiva",
+    tag: "E-commerce",
+    image: "/projects/tecnoplay.png",
+    url: "https://tecnoplay.app.br/",
+  },
+  {
+    name: "Dr. Mateus Pellizzaro",
+    segmento: "Saúde · Oftalmologia",
+    resultado: "Posicionamento digital para médico oftalmologista",
+    tag: "Web Design",
+    image: "/projects/drmateuspellizzaro.png",
+    url: "https://drmateuspellizzaro.vercel.app/",
+  },
+  {
+    name: "Viva Park Corporate",
+    segmento: "Imóveis · Salas comerciais",
+    resultado: "Lançamento imobiliário · Porto Belo, SC",
+    tag: "Landing Page",
+    image: "/projects/viva-park.png",
+    url: "https://viva-park-corporate.vercel.app/",
+  },
+  {
+    name: "Agilizza Soluções",
+    segmento: "B2B · Serviços técnicos",
+    resultado: "Presença digital para converter clientes locais",
+    tag: "Web Design",
+    image: "/projects/agilizza.png",
+    url: "https://agilizzasolucoes.com.br/",
+  },
+  {
+    name: "Paesaggio",
+    segmento: "Paisagismo · Institucional",
+    resultado: "Site institucional com portfólio visual",
+    tag: "Web Design",
+    image: "/projects/paesaggio.png",
+    url: "https://paesaggio-residencial.vercel.app/",
+  },
+];
+
 export const PROCESS_STEPS = [
   {
     num: "01",
