@@ -24,12 +24,12 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Studio Brave — Aceleradores de Negócios",
+  title: "Studio Brave — Presença digital que aparece e converte em 2026",
   description:
-    "Estrutura digital completa para empresários que já têm resultado — mas não parecem ter. Sites, tráfego, conteúdo e automação integrados em uma estratégia única.",
+    "A Studio Brave constrói a fundação digital que faz seu negócio aparecer no Google, no Maps e no ChatGPT — e converter quem já chegou decidido.",
   openGraph: {
     title: "Studio Brave",
-    description: "Não somos agência. Somos motores e pilotos.",
+    description: "Presença digital que aparece e converte — no Google, no Maps, no ChatGPT.",
     url: "https://studiobrave.com.br",
     siteName: "Studio Brave",
     locale: "pt_BR",
