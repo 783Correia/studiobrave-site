@@ -61,8 +61,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.5, ease }}
           className="text-[#999999] text-[17px] md:text-[19px] font-light max-w-[560px] mb-12 leading-[1.7]"
         >
-          A Brave não é uma agência. Ela estrutura a forma como o seu negócio
-          é apresentado, operado e percebido no digital.
+          A Brave não é uma agência. Ela constrói a presença digital que faz
+          o seu negócio aparecer e converter — no Google, no Maps, no ChatGPT.
         </motion.p>
 
         {/* CTA row — desktop */}

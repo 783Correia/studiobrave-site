@@ -17,22 +17,23 @@ export default function Produtos() {
 
       <AnimatedSection>
         <h2 className="font-display text-[clamp(44px,6.5vw,88px)] leading-[0.88] text-white mb-4">
-          UMA ESCADA.<br />
-          NÃO UM CARDÁPIO.
+          FUNDAÇÃO.<br />
+          PRESENÇA.<br />
+          SISTEMA.
         </h2>
       </AnimatedSection>
 
       <AnimatedSection>
         <p className="text-brand-muted text-[15px] md:text-[16px] max-w-[520px] mb-20 leading-relaxed">
-          Cada solução resolve um problema e prepara o terreno para a próxima.
-          Não existe plano padrão — existe o que faz sentido para o seu momento.
+          Não existe plano padrão. Existe o que faz sentido para o seu momento —
+          projeto único, recorrência ou infraestrutura completa.
         </p>
       </AnimatedSection>
 
-      {/* Top 3 cards */}
+      {/* Top 2 cards */}
       <AnimatedSection
         variants={stagger}
-        className="grid grid-cols-1 md:grid-cols-3 gap-px bg-brand-border border border-brand-border mb-px"
+        className="grid grid-cols-1 md:grid-cols-2 gap-px bg-brand-border border border-brand-border mb-px"
       >
         {PRODUCTS.map((product) => (
           <motion.div

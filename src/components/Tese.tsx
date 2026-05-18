@@ -47,14 +47,13 @@ export default function Tese() {
         >
           <SectionLabel className="mb-5">A diferença que muda o jogo</SectionLabel>
           <p className="text-brand-text text-[16px] md:text-[18px] leading-relaxed mb-4">
-            Agência entrega post. Nós entregamos processo.
+            Agência entrega campanha. Nós entregamos sistema.
           </p>
           <p className="text-brand-muted text-[15px] leading-relaxed">
-            Site, Instagram e tráfego são canais. O que determina o resultado é
-            como o seu negócio é estruturado, percebido e operado em cima desses
-            canais.{" "}
+            Em 2026, 60% das buscas terminam sem clique — o Google responde com IA antes de mostrar qualquer site.
+            Quem aparece nessa resposta tem GMB completo, site indexável e conteúdo estruturado.{" "}
             <strong className="text-brand-text font-medium">
-              Não vendemos marketing. Vendemos estrutura + percepção + sistema.
+              É exatamente isso que a Brave constrói.
             </strong>
           </p>
         </div>
