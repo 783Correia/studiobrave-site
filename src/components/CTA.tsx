@@ -47,8 +47,8 @@ export default function CTA() {
             className="text-brand-muted text-[16px] max-w-[480px] mb-14 leading-relaxed"
           >
             Se a resposta for "não sei" ou "acho que não" —
-            é disso que a Brave cuida. Uma conversa de 15 minutos
-            mostra exatamente o que está faltando.
+            tem dinheiro escapando agora. Uma conversa de 15 minutos
+            mostra exatamente onde.
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-col items-center gap-5">

@@ -34,9 +34,9 @@ export default function Tese() {
             Mas o resultado não vem — e ninguém sabe por quê.
           </p>
           <p className="text-brand-muted text-[15px] leading-relaxed">
-            Na maioria das vezes o gargalo não está no anúncio. Está no destino.
-            Site lento, sem estrutura de conversão, sem GMB configurado, sem rastreamento real.
-            Você paga pelo clique e desperdiça 90% do que chegou.
+            Anúncio → WhatsApp direto = curioso que pergunta preço e vai embora.
+            Anúncio → LP → contexto → WhatsApp = comprador que já decidiu.
+            A diferença não é o investimento em mídia — é o que há entre o clique e a conversa.
           </p>
         </div>
       </AnimatedSection>

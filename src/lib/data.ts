@@ -1,5 +1,5 @@
 export const WHATSAPP_URL =
-  "https://wa.me/5554996865236?text=Quero+saber+mais+sobre+a+Studio+Brave";
+  "https://wa.me/5554996865236?text=Oi,+vi+o+site+da+Studio+Brave+e+quero+entender+se+faz+sentido+pro+meu+negócio";
 
 export const NAV_LINKS = [
   { label: "Tese",     href: "#tese"     },
@@ -16,8 +16,8 @@ export const PILLARS = [
   },
   {
     num: "02",
-    title: "Percepção é ativo",
-    desc: "A forma como seu negócio aparece determina o tipo de cliente que atrai — e quanto consegue cobrar. Parece pequeno no digital, perde para quem parece maior.",
+    title: "Lead qualificado não pergunta preço",
+    desc: "Anúncio direto no WhatsApp traz curioso que pergunta preço e vai embora. Anúncio com LP e contexto traz comprador que já decidiu. A Brave constrói o caminho — não só o criativo.",
   },
   {
     num: "03",
@@ -41,7 +41,7 @@ export const PRODUCTS: Product[] = [
   {
     tag: "Projeto único",
     name: "Brave Foundation",
-    tagline: "A base que faz o negócio aparecer onde o cliente busca — Google, Maps, ChatGPT.",
+    tagline: "Site no ar em 10 dias, GMB configurado, estrutura indexável por IA. O cliente te acha antes de perguntar preço.",
     featured: false,
     badge: null,
     features: [
@@ -56,7 +56,7 @@ export const PRODUCTS: Product[] = [
   {
     tag: "Recorrência mensal",
     name: "Brave Presence",
-    tagline: "Presença que cresce mês a mês — conteúdo, GMB e relatório com número real.",
+    tagline: "Conteúdo que o Google ranqueia e a IA cita, com número rastreável no 30° dia.",
     featured: false,
     badge: null,
     features: [
@@ -73,7 +73,7 @@ export const PRODUCTS: Product[] = [
 export const BRAVE_SYSTEM = {
   tag: "Infraestrutura completa",
   name: "Brave System",
-  tagline: "Para quem cresce mas perde lead no pipeline.",
+  tagline: "Para quem já tem volume de lead e vê dinheiro escapar antes do fechamento.",
   badge: "Topo da cadeia",
   desc: "Tudo do Brave Presence mais CRM, automações e IA integrada ao fluxo real do negócio. Setup único + retainer mensal. Para o empresário que tem volume de lead mas vê dinheiro escapar no follow-up.",
   features: [
@@ -150,52 +150,28 @@ export const PORTFOLIO: PortfolioCase[] = [
     url: "https://tornometalevertonlopes.com.br/",
   },
   {
-    name: "Dieison Corazza",
-    segmento: "Imóveis · Alto padrão",
-    resultado: "Landing page de imóvel premium exclusivo",
-    tag: "Landing Page",
-    image: "/projects/palazzo-giardino.png",
-    url: "https://palazzo-giardino-private.vercel.app/",
-  },
-  {
     name: "TecnoPlay",
-    segmento: "E-commerce · Produto digital",
+    segmento: "SaaS · Produto digital",
     resultado: "R$16k faturados · R$5k de renda mensal passiva",
-    tag: "E-commerce",
+    tag: "SaaS",
     image: "/projects/tecnoplay.png",
     url: "https://tecnoplay.app.br/",
   },
   {
     name: "Dr. Mateus Pellizzaro",
     segmento: "Saúde · Oftalmologia",
-    resultado: "Posicionamento digital para médico oftalmologista",
+    resultado: "5,0 no Google · Design premium médico · Autoridade digital para cirurgião especialista",
     tag: "Web Design",
     image: "/projects/drmateuspellizzaro.png",
     url: "https://drmateuspellizzaro.vercel.app/",
   },
   {
-    name: "Viva Park Corporate",
-    segmento: "Imóveis · Salas comerciais",
-    resultado: "Lançamento imobiliário · Porto Belo, SC",
-    tag: "Landing Page",
-    image: "/projects/viva-park.png",
-    url: "https://viva-park-corporate.vercel.app/",
-  },
-  {
     name: "Agilizza Soluções",
     segmento: "B2B · Serviços técnicos",
-    resultado: "Presença digital para converter clientes locais",
+    resultado: "Estrutura digital completa com site, GMB e SEO para empresa de soluções técnicas",
     tag: "Web Design",
     image: "/projects/agilizza.png",
     url: "https://agilizzasolucoes.com.br/",
-  },
-  {
-    name: "Paesaggio",
-    segmento: "Paisagismo · Institucional",
-    resultado: "Site institucional com portfólio visual",
-    tag: "Web Design",
-    image: "/projects/paesaggio.png",
-    url: "https://paesaggio-residencial.vercel.app/",
   },
 ];
 

@@ -1,72 +1,115 @@
-import Container from "@/components/ui/Container";
 import { WHATSAPP_URL } from "@/lib/data";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-brand-border bg-brand-black">
-      <Container className="py-16 flex flex-col md:flex-row md:items-start md:justify-between gap-12">
-        {/* Logo + tagline */}
-        <div>
-          <p className="font-display text-[40px] text-white tracking-[3px] leading-none mb-3">
-            STUDIO <span className="text-brand-red">BRAVE</span>
-          </p>
-          <p className="font-mono text-[11px] text-brand-muted uppercase tracking-[0.2em]">
-            Estrutura · Percepção · Sistema
-          </p>
-        </div>
+    <footer
+      style={{
+        background:
+          "linear-gradient(180deg, #0a0a0a 0%, rgba(196,30,30,0.08) 35%, rgba(196,30,30,0.22) 65%, rgba(196,30,30,0.38) 100%)",
+      }}
+    >
+      {/* Top: CTA pill + links */}
+      <div
+        className="border-t"
+        style={{ borderColor: "rgba(255,255,255,0.06)" }}
+      >
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-20 grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
 
-        {/* Nav links */}
-        <div className="flex flex-col gap-2">
-          <p className="font-mono text-[10px] text-brand-muted uppercase tracking-[0.25em] mb-2">Menu</p>
-          {[
-            { label: "Por quê existimos", href: "#tese" },
-            { label: "Soluções", href: "#produtos" },
-            { label: "Resultados", href: "#cases" },
-            { label: "Como funciona", href: "#processo" },
-          ].map((link) => (
+          {/* Nav */}
+          <div className="flex flex-col gap-3">
+            {[
+              { label: "Por quê existimos", href: "#tese" },
+              { label: "Soluções",           href: "#produtos" },
+              { label: "Resultados",         href: "#cases" },
+              { label: "Como funciona",      href: "#processo" },
+            ].map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                className="font-mono text-[12px] uppercase tracking-[0.2em] transition-colors duration-200 hover:text-white"
+                style={{ color: "rgba(255,255,255,0.35)" }}
+              >
+                {l.label}
+              </a>
+            ))}
+          </div>
+
+          {/* CTA pill — center */}
+          <div className="flex justify-center">
             <a
-              key={link.label}
-              href={link.href}
-              className="font-mono text-[13px] text-brand-muted hover:text-white transition-colors duration-200 no-underline"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 font-mono text-[12px] uppercase tracking-[0.25em] transition-all duration-300 hover:bg-white/10"
+              style={{
+                border: "1px solid rgba(255,255,255,0.2)",
+                borderRadius: 999,
+                padding: "18px 40px",
+                color: "rgba(255,255,255,0.7)",
+                width: "100%",
+                maxWidth: 320,
+              }}
             >
-              {link.label}
+              <span>Ver se faz sentido</span>
+              <span style={{ color: "#C41E1E" }}>↗</span>
             </a>
-          ))}
-        </div>
+          </div>
 
-        {/* Info */}
-        <div className="flex flex-col gap-2">
-          <p className="font-mono text-[10px] text-brand-muted uppercase tracking-[0.25em] mb-2">Contato</p>
-          <p className="font-mono text-[13px] text-brand-muted">
-            Yuri Correia · Lagoa Vermelha, RS
-          </p>
-          <a
-            href="mailto:contato@studiobrave.com.br"
-            className="font-mono text-[13px] text-brand-muted hover:text-white transition-colors no-underline"
-          >
-            contato@studiobrave.com.br
-          </a>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-[13px] text-brand-red hover:text-brand-red-light transition-colors no-underline"
-          >
-            WhatsApp ↗
-          </a>
+          {/* Contato */}
+          <div className="flex flex-col gap-3 md:items-end">
+            <p className="font-mono text-[10px] uppercase tracking-[0.25em] mb-1"
+              style={{ color: "rgba(255,255,255,0.25)" }}>
+              Contato
+            </p>
+            <p className="font-mono text-[12px]" style={{ color: "rgba(255,255,255,0.4)" }}>
+              Lagoa Vermelha, RS · Brasil
+            </p>
+            <a
+              href="mailto:contato@studiobrave.com.br"
+              className="font-mono text-[12px] transition-colors hover:text-white"
+              style={{ color: "rgba(255,255,255,0.4)" }}
+            >
+              contato@studiobrave.com.br
+            </a>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-[12px] transition-colors hover:text-white"
+              style={{ color: "#C41E1E" }}
+            >
+              WhatsApp ↗
+            </a>
+          </div>
         </div>
-      </Container>
+      </div>
 
-      {/* Copyright */}
-      <div className="border-t border-brand-border">
-        <Container className="py-5 flex items-center justify-between">
-          <p className="font-mono text-[11px] text-brand-muted">
+      {/* Massive brand name */}
+      <div
+        className="overflow-hidden"
+        style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
+      >
+        <p
+          className="font-display text-white text-center leading-[0.85] select-none"
+          style={{ fontSize: "clamp(60px, 13.5vw, 220px)", paddingBottom: "0.05em" }}
+        >
+          STUDIO BRAVE
+        </p>
+      </div>
+
+      {/* Copyright strip */}
+      <div
+        className="border-t"
+        style={{ borderColor: "rgba(255,255,255,0.06)" }}
+      >
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
+          <p className="font-mono text-[10px]" style={{ color: "rgba(255,255,255,0.2)" }}>
             © 2026 Studio Brave. Todos os direitos reservados.
           </p>
-          <p className="font-mono text-[11px] text-brand-muted hidden md:block">
-            Lagoa Vermelha · RS · Brasil
+          <p className="font-mono text-[10px] hidden md:block" style={{ color: "rgba(255,255,255,0.2)" }}>
+            studiobrave.com.br
           </p>
-        </Container>
+        </div>
       </div>
     </footer>
   );
