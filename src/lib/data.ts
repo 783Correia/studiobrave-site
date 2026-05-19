@@ -160,8 +160,8 @@ export const PORTFOLIO: PortfolioCase[] = [
   {
     name: "Dr. Mateus Pellizzaro",
     segmento: "Saúde · Oftalmologia",
-    resultado: "5,0 no Google · Design premium médico · Autoridade digital para cirurgião especialista",
-    tag: "Web Design",
+    resultado: "5,0 no Google · 51 avaliações · Site + SEO local + GMB para cirurgião especialista em Concórdia SC",
+    tag: "Web + SEO + GMB",
     image: "/projects/drmateuspellizzaro.png",
     url: "https://drmateuspellizzaro.vercel.app/",
   },
