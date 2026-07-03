@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, DM_Sans, DM_Mono } from "next/font/google";
+import { FAQ } from "@/lib/data";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -174,32 +175,11 @@ const schemaOrg = {
     },
     {
       "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "O que é estrutura digital para empresas B2B?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Estrutura digital é a fundação que faz seu negócio aparecer quando o cliente pesquisa no Google, no Maps ou pergunta pro ChatGPT. Inclui site rápido e tecnicamente correto, Google Meu Negócio completo, schema markup para indexação por IAs e SEO técnico. É o que separa negócios que aparecem organicamente dos que dependem só de anúncio."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "O que é GEO — Generative Engine Optimization?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "GEO é a otimização para aparecer em respostas de IAs como ChatGPT, Perplexity e Gemini. Envolve schema markup correto, informações estruturadas, GMB completo e conteúdo factual. Nosso cliente Jaco Locadora é recomendado pelo ChatGPT quando alguém pergunta sobre aluguel de plataforma elevatória em Palhoça SC."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Qual a diferença entre Studio Brave e uma agência de marketing digital comum?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Agências comuns entregam post, anúncio e relatório de alcance. A Studio Brave entrega estrutura: site técnico que ranqueia, GMB que gera ligação, schema markup que faz a IA recomendar seu negócio. Trabalhamos com número real — conversão, ligação, CPL — não com métrica de vaidade."
-          }
-        }
-      ]
+      "mainEntity": FAQ.map((item) => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": { "@type": "Answer", "text": item.a },
+      }))
     }
   ]
 };

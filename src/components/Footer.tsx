@@ -22,6 +22,7 @@ export default function Footer() {
               { label: "Soluções",           href: "#produtos" },
               { label: "Resultados",         href: "#cases" },
               { label: "Como funciona",      href: "#processo" },
+              { label: "Perguntas",          href: "#faq" },
               { label: "Playbook · R$27",    href: "/novojogo", accent: true },
             ].map((l) => (
               <a

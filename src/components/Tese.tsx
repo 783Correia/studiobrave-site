@@ -7,6 +7,28 @@ import Container from "@/components/ui/Container";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
+const PILLAR_ICONS = [
+  // camadas — estrutura
+  <svg key="0" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" />
+    <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" />
+    <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />
+  </svg>,
+  // rota — caminho do lead
+  <svg key="1" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <circle cx="6" cy="19" r="3" />
+    <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" />
+    <circle cx="18" cy="5" r="3" />
+  </svg>,
+  // ciclo — sistema
+  <svg key="2" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+    <path d="M21 3v5h-5" />
+    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+    <path d="M3 21v-5h5" />
+  </svg>,
+];
+
 export default function Tese() {
   return (
     <Container className="py-28 md:py-40">
@@ -15,64 +37,80 @@ export default function Tese() {
       </AnimatedSection>
 
       <AnimatedSection>
-        <h2 className="font-display text-[clamp(34px,5vw,64px)] leading-[1.05] text-white mb-16 max-w-[16ch]">
+        <h2 className="font-display text-[clamp(34px,5vw,64px)] leading-[1.05] text-white mb-6 max-w-[16ch]">
           O problema não era o gestor.{" "}
           <span className="text-gradient-green">Era o site.</span>
         </h2>
       </AnimatedSection>
 
-      {/* Card — problema */}
       <AnimatedSection>
-        <div className="card-glass p-10 md:p-14 mb-4 cursor-default">
-          {/* Accent line top */}
+        <p className="text-brand-muted text-[15px] md:text-[16px] max-w-[520px] mb-16 leading-relaxed">
+          Você investe em tráfego. O gestor é bom. As campanhas rodam.
+          Mas o resultado não vem — e ninguém sabe por quê.
+        </p>
+      </AnimatedSection>
+
+      {/* Diagnóstico em duas colunas */}
+      <AnimatedSection variants={stagger} className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <motion.div variants={fadeUp} className="card-glass p-10 md:p-12 cursor-default">
+          <div className="h-px mb-8" style={{
+            background: "linear-gradient(90deg, rgba(255,255,255,0.18), rgba(255,255,255,0.03) 60%, transparent)"
+          }} />
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-brand-faint mb-6">
+            Onde o dinheiro escapa
+          </p>
+          <p className="text-brand-text text-[16px] md:text-[17px] leading-relaxed mb-4">
+            Anúncio direto pro WhatsApp traz curioso que pergunta preço e some.
+          </p>
+          <p className="text-brand-muted text-[14.5px] leading-relaxed">
+            Anúncio com página, contexto e prova traz comprador que já decidiu.
+            A diferença não é o investimento em mídia — é o que existe entre
+            o clique e a conversa.
+          </p>
+        </motion.div>
+
+        <motion.div variants={fadeUp} className="card-glass p-10 md:p-12 cursor-default">
           <div className="h-px mb-8" style={{
             background: "linear-gradient(90deg, #10B981, rgba(16,185,129,0.1) 60%, transparent)"
           }} />
-          <p className="text-brand-text text-[17px] md:text-[20px] leading-relaxed mb-5 font-light">
-            Você investe em tráfego. O gestor é bom. As campanhas rodam.
-            Mas o resultado não vem — e ninguém sabe por quê.
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-brand-green-light mb-6">
+            O que mudou em 2026
           </p>
-          <p className="text-brand-muted text-[15px] leading-relaxed">
-            Anúncio → WhatsApp direto = curioso que pergunta preço e vai embora.
-            Anúncio → LP → contexto → WhatsApp = comprador que já decidiu.
-            A diferença não é o investimento em mídia — é o que há entre o clique e a conversa.
-          </p>
-        </div>
-      </AnimatedSection>
-
-      {/* Card — 2026 */}
-      <AnimatedSection>
-        <div className="card-glass p-10 md:p-14 mb-20 cursor-default">
-          <div className="h-px mb-8" style={{
-            background: "linear-gradient(90deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03) 60%, transparent)"
-          }} />
-          <SectionLabel className="mb-5">O que mudou em 2026</SectionLabel>
-          <p className="text-brand-text text-[16px] md:text-[18px] leading-relaxed mb-4">
-            O Google agora responde antes de mostrar qualquer link.
+          <p className="text-brand-text text-[16px] md:text-[17px] leading-relaxed mb-4">
+            O Google responde antes de mostrar qualquer link.
             O ChatGPT decide antes do clique acontecer.
           </p>
-          <p className="text-brand-muted text-[15px] leading-relaxed">
-            Quem aparece nessa resposta tem site indexável, GMB completo
-            e conteúdo estruturado. 99% das empresas brasileiras não têm isso ainda.{" "}
-            <strong className="text-brand-text font-medium">
-              Quem construir primeiro, domina.
-            </strong>
+          <p className="text-brand-muted text-[14.5px] leading-relaxed">
+            Quem aparece nessa resposta tem site indexável, GMB completo e
+            conteúdo estruturado. 99% das empresas brasileiras ainda não têm.{" "}
+            <strong className="text-brand-text font-medium">Quem constrói primeiro, domina.</strong>
           </p>
-        </div>
+        </motion.div>
       </AnimatedSection>
 
-      {/* 3 Pillars */}
+      {/* 3 pilares */}
       <AnimatedSection variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {PILLARS.map((pillar) => (
+        {PILLARS.map((pillar, i) => (
           <motion.div
             key={pillar.num}
             variants={fadeUp}
-            className="card-glass p-8 md:p-10 cursor-default"
+            className="card-glass group p-8 md:p-10 cursor-default relative overflow-hidden"
           >
-            <span className="block font-display text-[56px] leading-none text-gradient-green opacity-30 mb-4">
-              {pillar.num}
-            </span>
-            <h3 className="font-display text-[20px] text-white mb-3">
+            <div className="flex items-center justify-between mb-8">
+              <span
+                className="inline-flex items-center justify-center w-11 h-11 rounded-xl text-brand-green-light transition-colors duration-300"
+                style={{
+                  background: "rgba(16,185,129,0.08)",
+                  border: "1px solid rgba(16,185,129,0.2)",
+                }}
+              >
+                {PILLAR_ICONS[i]}
+              </span>
+              <span className="font-mono text-[11px] tracking-[0.2em] text-brand-faint">
+                {pillar.num}
+              </span>
+            </div>
+            <h3 className="font-display text-[19px] text-white mb-3 leading-snug">
               {pillar.title}
             </h3>
             <p className="text-brand-muted text-[14px] leading-relaxed">

@@ -1,4 +1,6 @@
 export const ease = [0.22, 1, 0.36, 1] as const
+// expo-out — entrada rápida com assentamento longo, sensação premium
+export const easeExpo = [0.16, 1, 0.3, 1] as const
 
 export const fadeUp = {
   hidden: { opacity: 0, y: 28 },

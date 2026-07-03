@@ -1,13 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { NAV_LINKS, WHATSAPP_URL } from "@/lib/data";
 import Container from "@/components/ui/Container";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 60);
@@ -19,11 +21,21 @@ export default function Nav() {
     <header
       className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500"
       style={{
-        background: scrolled ? "rgba(10,10,11,0.95)" : "transparent",
+        background: scrolled ? "rgba(10,10,11,0.92)" : "transparent",
         backdropFilter: scrolled ? "blur(24px)" : "none",
         borderBottom: scrolled ? "1px solid #26262A" : "1px solid transparent",
       }}
     >
+      {/* Progresso de leitura */}
+      <motion.div
+        className="absolute top-0 left-0 right-0 h-[2px] origin-left"
+        style={{
+          scaleX: progress,
+          background: "linear-gradient(90deg, #10B981, #34D399)",
+          opacity: scrolled ? 1 : 0,
+          transition: "opacity 0.4s ease",
+        }}
+      />
       <Container as="nav" className="py-5 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="font-display text-[19px] text-white no-underline hover:opacity-80 transition-opacity duration-200">

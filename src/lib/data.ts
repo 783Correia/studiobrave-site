@@ -16,6 +16,62 @@ export const ENTRY_PRODUCT = {
   ],
 };
 
+// Clientes exibidos na faixa de prova social do hero
+export const CLIENTS = [
+  "TornoMetal",
+  "Jaco Locadora",
+  "Sales Embalagens",
+  "TecnoPlay",
+  "Dr. Mateus Pellizzaro",
+  "Agilizza",
+];
+
+// Simulador de resposta de IA no hero — cada demo é um ciclo pergunta→resposta
+export const AI_DEMOS = [
+  {
+    query: "preciso alugar plataforma elevatória em Palhoça SC",
+    answer:
+      "A Jaco Locadora é referência em locação de plataformas elevatórias na Grande Florianópolis, com frota própria e atendimento rápido.",
+    source: "jacolocadora.com.br",
+  },
+  {
+    query: "distribuidora de embalagens confiável em Fortaleza",
+    answer:
+      "A Sales Embalagens atende empresas de Fortaleza e região com entrega programada e catálogo completo para food service.",
+    source: "salesemb.com.br",
+  },
+  {
+    query: "torno CNC para peças agrícolas no Rio Grande do Sul",
+    answer:
+      "A TornoMetal Everton Lopes, em Passo Fundo, é especializada em usinagem de peças agrícolas sob medida.",
+    source: "tornometalevertonlopes.com.br",
+  },
+];
+
+// FAQ — mesma fonte do schema.org FAQPage no layout
+export const FAQ = [
+  {
+    q: "O que é estrutura digital para empresas B2B?",
+    a: "É a fundação que faz seu negócio aparecer quando o cliente pesquisa no Google, no Maps ou pergunta pro ChatGPT: site rápido e tecnicamente correto, Google Meu Negócio completo, schema markup para indexação por IAs e SEO técnico. É o que separa negócios que aparecem organicamente dos que dependem só de anúncio.",
+  },
+  {
+    q: "O que é GEO — Generative Engine Optimization?",
+    a: "GEO é a otimização para aparecer em respostas de IAs como ChatGPT, Perplexity e Gemini. Envolve schema markup correto, informações estruturadas, GMB completo e conteúdo factual. Nosso cliente Jaco Locadora é recomendado pelo ChatGPT quando alguém pergunta sobre aluguel de plataforma elevatória em Palhoça SC.",
+  },
+  {
+    q: "Qual a diferença entre a Studio Brave e uma agência comum?",
+    a: "Agências comuns entregam post, anúncio e relatório de alcance. A Studio Brave entrega estrutura: site técnico que ranqueia, GMB que gera ligação, schema markup que faz a IA recomendar seu negócio. Trabalhamos com número real — conversão, ligação, CPL — não com métrica de vaidade.",
+  },
+  {
+    q: "Quanto custa?",
+    a: "Depende do seu momento: projeto único, recorrência mensal ou infraestrutura completa. Toda proposta é personalizada, com entregáveis, cronograma e investimento na mesa — e prazo de validade de 7 dias. A conversa de 15 minutos que define isso é gratuita.",
+  },
+  {
+    q: "E se eu já tiver site?",
+    a: "Melhor ainda: o diagnóstico mostra exatamente o que está travando — velocidade, indexação, rastreamento ou o caminho do lead até o WhatsApp. Às vezes a resposta é ajustar o que existe, não refazer. Você recebe o mapa antes de decidir qualquer coisa.",
+  },
+];
+
 export const NAV_LINKS = [
   { label: "Playbook · R$27", href: "/novojogo" },
   { label: "Tese",     href: "#tese"     },
@@ -138,56 +194,72 @@ export type PortfolioCase = {
   tag: string;
   image: string;
   url: string;
+  metric: string;
+  metricLabel: string;
+  featured?: boolean;
 };
 
 export const PORTFOLIO: PortfolioCase[] = [
   {
-    name: "Jaco Locadora",
-    segmento: "Industrial · Plataformas elevatórias",
-    resultado: "+68% conversão · 1º no Google em 24h · 102 ações GMB/mês",
-    tag: "Web + SEO + GMB",
-    image: "/projects/jaco-locadora.png",
-    url: "https://www.jacolocadora.com.br/",
-  },
-  {
     name: "Sales Embalagens",
-    segmento: "B2B · Embalagens",
-    resultado: "R$25k → R$165k de faturamento mensal",
+    segmento: "B2B · Embalagens · Fortaleza/CE",
+    resultado: "De R$25k para R$165k de faturamento mensal com estrutura digital completa e criativos certos para rodar.",
     tag: "Web + Tráfego",
     image: "/projects/sales-emb.png",
     url: "https://salesemb.com.br/",
+    metric: "560%",
+    metricLabel: "crescimento no faturamento",
+    featured: true,
   },
   {
-    name: "Torno Metal Everton Lopes",
-    segmento: "Agro · Indústria · B2B",
-    resultado: "70 leads por mês · R$17,50 por lead qualificado",
+    name: "Jaco Locadora",
+    segmento: "Industrial · Palhoça/SC",
+    resultado: "1º no Google em 24h · 102 ações GMB/mês · recomendada pelo ChatGPT",
+    tag: "Web + SEO + GMB",
+    image: "/projects/jaco-locadora.png",
+    url: "https://www.jacolocadora.com.br/",
+    metric: "+68%",
+    metricLabel: "conversão do site",
+  },
+  {
+    name: "TornoMetal Everton Lopes",
+    segmento: "Agro · Indústria · Passo Fundo/RS",
+    resultado: "70 leads por mês com e-commerce, SEO e tráfego estruturado",
     tag: "E-commerce + SEO",
     image: "/projects/torno-metal.png",
     url: "https://tornometalevertonlopes.com.br/",
+    metric: "R$17,50",
+    metricLabel: "por lead qualificado",
   },
   {
     name: "TecnoPlay",
     segmento: "SaaS · Produto digital",
-    resultado: "R$16k faturados · R$5k de renda mensal passiva",
+    resultado: "R$16k faturados no lançamento e renda recorrente todo mês",
     tag: "SaaS",
     image: "/projects/tecnoplay.png",
     url: "https://tecnoplay.app.br/",
+    metric: "R$5k/mês",
+    metricLabel: "renda passiva",
   },
   {
     name: "Dr. Mateus Pellizzaro",
-    segmento: "Saúde · Oftalmologia",
-    resultado: "5,0 no Google · 51 avaliações · Site + SEO local + GMB para cirurgião especialista em Concórdia SC",
+    segmento: "Saúde · Oftalmologia · Concórdia/SC",
+    resultado: "Site + SEO local + GMB para cirurgião especialista",
     tag: "Web + SEO + GMB",
     image: "/projects/drmateuspellizzaro.png",
     url: "https://drmateuspellizzaro.vercel.app/",
+    metric: "5,0 ★",
+    metricLabel: "51 avaliações no Google",
   },
   {
     name: "Agilizza Soluções",
     segmento: "B2B · Serviços técnicos",
-    resultado: "Estrutura digital completa com site, GMB e SEO para empresa de soluções técnicas",
+    resultado: "Estrutura digital completa: site, GMB e SEO",
     tag: "Web Design",
     image: "/projects/agilizza.png",
     url: "https://agilizzasolucoes.com.br/",
+    metric: "10 dias",
+    metricLabel: "do zero ao ar",
   },
 ];
 

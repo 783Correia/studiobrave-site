@@ -35,8 +35,8 @@ export default function Marquee() {
       />
 
       <div
-        className="flex items-center gap-0 whitespace-nowrap"
-        style={{ animation: "marquee-scroll 40s linear infinite" }}
+        className="marquee-track flex items-center gap-0 whitespace-nowrap"
+        style={{ animation: "marquee-scroll 48s linear infinite" }}
       >
         {repeated.map((item, i) => (
           <span key={i} className="flex items-center gap-0">

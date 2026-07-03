@@ -87,6 +87,23 @@
   box-shadow: 0 0 48px rgba(16,185,129,0.09), inset 0 1px 0 rgba(16,185,129,0.12);
 }
 
+/* ── CASE CARDS (bento) ── */
+.case-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+.case-card:hover {
+  border-color: rgba(16,185,129,0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.45), 0 0 0 1px rgba(16,185,129,0.1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .case-card:hover { transform: none; }
+}
+
 /* ── GRADIENT TEXT ── */
 .text-gradient-green {
   background: linear-gradient(135deg, #34D399 0%, #6EE7B7 55%, #34D399 100%);
@@ -99,6 +116,10 @@
 @keyframes marquee-scroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
+}
+.marquee-track:hover { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none !important; }
 }
 
 @keyframes float-glow {
