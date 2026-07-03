@@ -27,11 +27,11 @@ export default function Marquee() {
     >
       {/* Fade left */}
       <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to right, #0a0a0a, transparent)" }}
+        style={{ background: "linear-gradient(to right, #0a0a0b, transparent)" }}
       />
       {/* Fade right */}
       <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to left, #0a0a0a, transparent)" }}
+        style={{ background: "linear-gradient(to left, #0a0a0b, transparent)" }}
       />
 
       <div
@@ -43,7 +43,7 @@ export default function Marquee() {
             <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand-muted px-8">
               {item}
             </span>
-            <span className="text-brand-red text-[8px]">◆</span>
+            <span className="text-brand-green text-[8px]">◆</span>
           </span>
         ))}
       </div>

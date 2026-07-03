@@ -5,7 +5,7 @@ export default function Footer() {
     <footer
       style={{
         background:
-          "linear-gradient(180deg, #0a0a0a 0%, rgba(196,30,30,0.08) 35%, rgba(196,30,30,0.22) 65%, rgba(196,30,30,0.38) 100%)",
+          "linear-gradient(180deg, #0a0a0b 0%, rgba(16,185,129,0.06) 35%, rgba(16,185,129,0.14) 65%, rgba(16,185,129,0.24) 100%)",
       }}
     >
       {/* Top: CTA pill + links */}
@@ -22,12 +22,13 @@ export default function Footer() {
               { label: "Soluções",           href: "#produtos" },
               { label: "Resultados",         href: "#cases" },
               { label: "Como funciona",      href: "#processo" },
+              { label: "Playbook · R$27",    href: "/novojogo", accent: true },
             ].map((l) => (
               <a
                 key={l.label}
                 href={l.href}
                 className="font-mono text-[12px] uppercase tracking-[0.2em] transition-colors duration-200 hover:text-white"
-                style={{ color: "rgba(255,255,255,0.35)" }}
+                style={{ color: l.accent ? "#34D399" : "rgba(255,255,255,0.55)" }}
               >
                 {l.label}
               </a>
@@ -51,23 +52,23 @@ export default function Footer() {
               }}
             >
               <span>Ver se faz sentido</span>
-              <span style={{ color: "#C41E1E" }}>↗</span>
+              <span style={{ color: "#34D399" }}>↗</span>
             </a>
           </div>
 
           {/* Contato */}
           <div className="flex flex-col gap-3 md:items-end">
             <p className="font-mono text-[10px] uppercase tracking-[0.25em] mb-1"
-              style={{ color: "rgba(255,255,255,0.25)" }}>
+              style={{ color: "rgba(255,255,255,0.45)" }}>
               Contato
             </p>
-            <p className="font-mono text-[12px]" style={{ color: "rgba(255,255,255,0.4)" }}>
+            <p className="font-mono text-[12px]" style={{ color: "rgba(255,255,255,0.6)" }}>
               Lagoa Vermelha, RS · Brasil
             </p>
             <a
               href="mailto:contato@studiobrave.com.br"
               className="font-mono text-[12px] transition-colors hover:text-white"
-              style={{ color: "rgba(255,255,255,0.4)" }}
+              style={{ color: "rgba(255,255,255,0.6)" }}
             >
               contato@studiobrave.com.br
             </a>
@@ -76,7 +77,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="font-mono text-[12px] transition-colors hover:text-white"
-              style={{ color: "#C41E1E" }}
+              style={{ color: "#34D399" }}
             >
               WhatsApp ↗
             </a>
@@ -90,8 +91,8 @@ export default function Footer() {
         style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
       >
         <p
-          className="font-display text-white text-center leading-[0.85] select-none"
-          style={{ fontSize: "clamp(60px, 13.5vw, 220px)", paddingBottom: "0.05em" }}
+          className="font-display text-white text-center leading-[0.95] select-none whitespace-nowrap"
+          style={{ fontSize: "clamp(40px, 9vw, 150px)", paddingBottom: "0.08em" }}
         >
           STUDIO BRAVE
         </p>

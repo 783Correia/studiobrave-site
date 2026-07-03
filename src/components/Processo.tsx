@@ -11,14 +11,13 @@ export default function Processo() {
   return (
     <Container className="py-28 md:py-40">
       <AnimatedSection>
-        <SectionLabel className="text-brand-red">04 — COMO FUNCIONA</SectionLabel>
+        <SectionLabel className="text-brand-green-light">04 — Como funciona</SectionLabel>
       </AnimatedSection>
 
       <AnimatedSection>
-        <h2 className="font-display text-[clamp(44px,6.5vw,88px)] leading-[0.88] text-white mb-6">
-          DO BRIEFING<br />
-          AO NO AR<br />
-          <span className="text-gradient-red">EM 10 DIAS.</span>
+        <h2 className="font-display text-[clamp(34px,5vw,64px)] leading-[1.05] text-white mb-6 max-w-[16ch]">
+          Do briefing ao no ar{" "}
+          <span className="text-gradient-green">em 10 dias.</span>
         </h2>
       </AnimatedSection>
 
@@ -34,7 +33,7 @@ export default function Processo() {
         {/* Vertical line */}
         <div
           className="absolute left-5 top-5 bottom-5 w-px pointer-events-none"
-          style={{ background: "linear-gradient(to bottom, rgba(196,30,30,0.4), rgba(255,255,255,0.05) 80%, transparent)" }}
+          style={{ background: "linear-gradient(to bottom, rgba(16,185,129,0.4), rgba(255,255,255,0.05) 80%, transparent)" }}
         />
 
         {PROCESS_STEPS.map((step, i) => (
@@ -53,8 +52,7 @@ export default function Processo() {
               }}
             >
               <span
-                className="font-mono text-[10px] tracking-widest transition-colors duration-300"
-                style={{ color: "#555" }}
+                className="font-mono text-[10px] tracking-widest transition-colors duration-300 text-brand-faint"
               >
                 {step.num}
               </span>
@@ -63,7 +61,7 @@ export default function Processo() {
               <div
                 className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{
-                  boxShadow: "0 0 0 1px rgba(196,30,30,0.5), 0 0 16px rgba(196,30,30,0.2)",
+                  boxShadow: "0 0 0 1px rgba(16,185,129,0.5), 0 0 16px rgba(16,185,129,0.2)",
                 }}
               />
             </div>
@@ -71,7 +69,7 @@ export default function Processo() {
             {/* Content */}
             <div className="pt-1.5 pb-2">
               <h3
-                className="font-display text-[28px] md:text-[34px] text-white tracking-wide leading-none mb-3 transition-colors duration-300 group-hover:text-brand-red"
+                className="font-display text-[22px] md:text-[26px] text-white leading-tight mb-3 transition-colors duration-300 group-hover:text-brand-green-light"
               >
                 {step.title}
               </h3>

@@ -27,9 +27,9 @@ export default function Hero() {
           height: "min(960px, 130vw)",
           borderRadius: "50%",
           background:
-            "radial-gradient(circle at 50% 25%, rgba(196,30,30,0.25) 0%, rgba(140,12,12,0.11) 36%, rgba(80,5,5,0.04) 58%, transparent 70%)",
+            "radial-gradient(circle at 50% 25%, rgba(16,185,129,0.22) 0%, rgba(6,95,70,0.11) 36%, rgba(4,47,36,0.04) 58%, transparent 70%)",
           boxShadow:
-            "0 0 120px rgba(196,30,30,0.14), 0 -40px 140px rgba(196,30,30,0.09)",
+            "0 0 120px rgba(16,185,129,0.12), 0 -40px 140px rgba(16,185,129,0.08)",
         }}
       />
 
@@ -40,7 +40,7 @@ export default function Hero() {
           top: "-8%", right: "-6%",
           width: 480, height: 480,
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(196,30,30,0.08) 0%, transparent 65%)",
+          background: "radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 65%)",
         }}
       />
 
@@ -71,8 +71,8 @@ export default function Hero() {
             backdropFilter: "blur(16px)",
           }}
         >
-          <span className="font-display text-[26px] text-white leading-none">{card.val}</span>
-          <span className="font-mono text-[9px] uppercase tracking-[0.2em] mt-1" style={{ color: "#555" }}>
+          <span className="font-display text-[24px] text-brand-green-light leading-none">{card.val}</span>
+          <span className="font-mono text-[9px] uppercase tracking-[0.2em] mt-1 text-brand-faint">
             {card.label}
           </span>
         </motion.div>
@@ -88,11 +88,11 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.2, ease }}
           className="flex items-center justify-center gap-3 mb-8"
         >
-          <span className="block w-5 h-px bg-brand-red" />
-          <p className="font-mono text-[10px] text-brand-red uppercase tracking-[0.35em]">
-            STUDIO BRAVE · PRESENÇA DIGITAL · 2026
+          <span className="block w-5 h-px bg-brand-green" />
+          <p className="font-mono text-[10px] text-brand-green-light uppercase tracking-[0.35em]">
+            Studio Brave · Presença digital · 2026
           </p>
-          <span className="block w-5 h-px bg-brand-red" />
+          <span className="block w-5 h-px bg-brand-green" />
         </motion.div>
 
         {/* Headline */}
@@ -100,11 +100,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.35, ease }}
-          className="font-display text-[clamp(60px,10.5vw,144px)] leading-[0.88] text-white mb-8"
+          className="font-display text-[clamp(40px,7vw,92px)] leading-[1.02] text-white mb-8 max-w-[13ch]"
         >
-          O CLIENTE JÁ<br />
-          <span className="text-gradient-red">DECIDIU</span><br />
-          ANTES DE CLICAR.
+          O cliente já{" "}
+          <span className="text-gradient-green">decidiu</span>{" "}
+          antes de clicar.
         </motion.h1>
 
         {/* Sub */}
@@ -112,8 +112,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5, ease }}
-          className="text-[16px] md:text-[17px] font-light max-w-[480px] mb-12 leading-[1.75]"
-          style={{ color: "#666" }}
+          className="text-[16px] md:text-[17px] font-light max-w-[480px] mb-12 leading-[1.75] text-brand-muted"
         >
           O lead chegou no WhatsApp, perguntou preço e sumiu.
           Não foi o gestor que falhou — foi o caminho que estava faltando.
@@ -127,12 +126,11 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center gap-5"
         >
           <Button href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" size="md">
-            VER SE FAZ SENTIDO →
+            Ver se faz sentido →
           </Button>
           <a
-            href="#tese"
-            className="font-mono text-[11px] uppercase tracking-[0.25em] hover:text-white transition-colors duration-200"
-            style={{ color: "#444" }}
+            href="#cases"
+            className="font-mono text-[11px] uppercase tracking-[0.25em] text-brand-faint hover:text-white transition-colors duration-200"
           >
             ver resultados ↓
           </a>
@@ -154,8 +152,8 @@ export default function Hero() {
                 borderRadius: 10,
               }}
             >
-              <span className="font-display text-[22px] text-white leading-none">{card.val}</span>
-              <span className="font-mono text-[8px] uppercase tracking-[0.18em] mt-0.5" style={{ color: "#555" }}>
+              <span className="font-display text-[20px] text-brand-green-light leading-none">{card.val}</span>
+              <span className="font-mono text-[8px] uppercase tracking-[0.18em] mt-0.5 text-brand-faint">
                 {card.label}
               </span>
             </div>
@@ -172,11 +170,11 @@ export default function Hero() {
         style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
       >
         <p
-          className="font-display text-center leading-[0.82] select-none"
+          className="font-display text-center leading-[0.95] select-none whitespace-nowrap"
           style={{
-            fontSize: "clamp(56px, 13vw, 210px)",
+            fontSize: "clamp(40px, 9vw, 150px)",
             color: "rgba(255,255,255,0.06)",
-            paddingBottom: "0.04em",
+            paddingBottom: "0.08em",
           }}
         >
           STUDIO BRAVE

@@ -13,7 +13,7 @@ interface ButtonProps {
 
 const variantClasses = {
   primary: [
-    "text-white font-display tracking-[0.1em]",
+    "text-[#04110B] font-semibold tracking-[0.01em]",
     "rounded-lg",
     "transition-all duration-300",
   ].join(" "),
@@ -56,16 +56,16 @@ export default function Button({
         className
       )}
       style={isPrimary ? {
-        background: "linear-gradient(135deg, #C41E1E 0%, #A81818 100%)",
-        boxShadow: "0 0 24px rgba(196,30,30,0.25), inset 0 1px 0 rgba(255,255,255,0.1)",
+        background: "linear-gradient(135deg, #34D399 0%, #10B981 100%)",
+        boxShadow: "0 0 24px rgba(16,185,129,0.25), inset 0 1px 0 rgba(255,255,255,0.25)",
       } : {
         border: "1px solid rgba(255,255,255,0.12)",
       }}
       onMouseEnter={(e) => {
         if (isPrimary) {
           (e.currentTarget as HTMLElement).style.boxShadow =
-            "0 0 36px rgba(196,30,30,0.45), inset 0 1px 0 rgba(255,255,255,0.12)"
-          ;(e.currentTarget as HTMLElement).style.filter = "brightness(1.1)"
+            "0 0 36px rgba(16,185,129,0.45), inset 0 1px 0 rgba(255,255,255,0.3)"
+          ;(e.currentTarget as HTMLElement).style.filter = "brightness(1.06)"
         } else {
           (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.35)"
         }
@@ -73,7 +73,7 @@ export default function Button({
       onMouseLeave={(e) => {
         if (isPrimary) {
           (e.currentTarget as HTMLElement).style.boxShadow =
-            "0 0 24px rgba(196,30,30,0.25), inset 0 1px 0 rgba(255,255,255,0.1)"
+            "0 0 24px rgba(16,185,129,0.25), inset 0 1px 0 rgba(255,255,255,0.25)"
           ;(e.currentTarget as HTMLElement).style.filter = ""
         } else {
           (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.12)"

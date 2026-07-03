@@ -11,14 +11,13 @@ export default function Tese() {
   return (
     <Container className="py-28 md:py-40">
       <AnimatedSection>
-        <SectionLabel className="text-brand-red">01 — O PROBLEMA</SectionLabel>
+        <SectionLabel className="text-brand-green-light">01 — O problema</SectionLabel>
       </AnimatedSection>
 
       <AnimatedSection>
-        <h2 className="font-display text-[clamp(44px,6.5vw,88px)] leading-[0.88] text-white mb-16">
-          O PROBLEMA<br />
-          NÃO ERA O GESTOR.<br />
-          <span className="text-gradient-red">ERA O SITE.</span>
+        <h2 className="font-display text-[clamp(34px,5vw,64px)] leading-[1.05] text-white mb-16 max-w-[16ch]">
+          O problema não era o gestor.{" "}
+          <span className="text-gradient-green">Era o site.</span>
         </h2>
       </AnimatedSection>
 
@@ -27,7 +26,7 @@ export default function Tese() {
         <div className="card-glass p-10 md:p-14 mb-4 cursor-default">
           {/* Accent line top */}
           <div className="h-px mb-8" style={{
-            background: "linear-gradient(90deg, #C41E1E, rgba(196,30,30,0.1) 60%, transparent)"
+            background: "linear-gradient(90deg, #10B981, rgba(16,185,129,0.1) 60%, transparent)"
           }} />
           <p className="text-brand-text text-[17px] md:text-[20px] leading-relaxed mb-5 font-light">
             Você investe em tráfego. O gestor é bom. As campanhas rodam.
@@ -70,10 +69,10 @@ export default function Tese() {
             variants={fadeUp}
             className="card-glass p-8 md:p-10 cursor-default"
           >
-            <span className="block font-display text-[64px] leading-none text-gradient-red opacity-30 mb-4">
+            <span className="block font-display text-[56px] leading-none text-gradient-green opacity-30 mb-4">
               {pillar.num}
             </span>
-            <h3 className="font-display text-[22px] text-white tracking-wide mb-3">
+            <h3 className="font-display text-[20px] text-white mb-3">
               {pillar.title}
             </h3>
             <p className="text-brand-muted text-[14px] leading-relaxed">

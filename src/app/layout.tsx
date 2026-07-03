@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, DM_Sans, DM_Mono } from "next/font/google";
+import { Space_Grotesk, DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
 
-const bebasNeue = Bebas_Neue({
-  weight: "400",
+const spaceGrotesk = Space_Grotesk({
+  weight: ["500", "700"],
   subsets: ["latin"],
-  variable: "--font-bebas",
+  variable: "--font-space",
   display: "swap",
 });
 
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Studio Brave — Estrutura digital B2B",
-    description: "Seu negócio aparecendo no Google, no Maps e no ChatGPT. Cases reais: Jaco Locadora 1º no Google em 24h, Sales Embalagens R$35k → R$165k/mês.",
+    description: "Seu negócio aparecendo no Google, no Maps e no ChatGPT. Cases reais: Jaco Locadora 1º no Google em 24h, Sales Embalagens R$25k → R$165k/mês.",
     url: "https://studiobrave.com.br",
     siteName: "Studio Brave",
     locale: "pt_BR",
@@ -145,7 +145,7 @@ const schemaOrg = {
           "position": 2,
           "item": {
             "@type": "Article",
-            "name": "Sales Embalagens — de R$35k para R$165k de faturamento mensal",
+            "name": "Sales Embalagens — de R$25k para R$165k de faturamento mensal",
             "description": "Distribuidora de embalagens em Fortaleza/CE. Com estrutura digital completa e criativos alinhados, cresceu 560% no faturamento mensal — de R$25k para R$165k no mesmo mês.",
             "url": "https://salesemb.com.br/"
           }
@@ -155,8 +155,8 @@ const schemaOrg = {
           "position": 3,
           "item": {
             "@type": "Article",
-            "name": "Torno Metal — 70 leads qualificados por mês a R$8,34 cada",
-            "description": "Indústria de peças agrícolas em Passo Fundo/RS. E-commerce em Next.js com SEO e tráfego estruturado gerando 70 leads qualificados por mês a R$8,34 cada.",
+            "name": "Torno Metal — 70 leads por mês a R$17,50 por lead qualificado",
+            "description": "Indústria de peças agrícolas em Passo Fundo/RS. E-commerce em Next.js com SEO e tráfego estruturado gerando 70 leads por mês, a R$17,50 por lead qualificado.",
             "url": "https://tornometalevertonlopes.com.br/"
           }
         },
@@ -212,7 +212,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${bebasNeue.variable} ${dmSans.variable} ${dmMono.variable}`}
+      className={`${spaceGrotesk.variable} ${dmSans.variable} ${dmMono.variable}`}
     >
       <head>
         <script

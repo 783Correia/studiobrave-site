@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>O Novo Jogo da Busca Local | Studio Brave</title>
+  <meta name="description" content="Playbook prático para empresas locais entenderem como serem encontradas, entendidas e recomendadas no Google e nas IAs em 2026." />
+  <style>
+    :root {
+      --paper: #fff4e7;
+      --paper-2: #f6e7d4;
+      --ink: #15100d;
+      --muted: #6d6257;
+      --soft: #fffaf2;
+      --orange: #ff4f20;
+      --orange-2: #ff7a2f;
+      --dark: #090705;
+      --line: rgba(21, 16, 13, .16);
+      --shadow: 0 28px 80px rgba(39, 20, 8, .16);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--sans);
+      background:
+        radial-gradient(circle at 82% 4%, rgba(255, 79, 32, .22), transparent 28rem),
+        radial-gradient(circle at 12% 22%, rgba(255, 122, 47, .16), transparent 24rem),
+        linear-gradient(90deg, rgba(21,16,13,.045) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(21,16,13,.045) 1px, transparent 1px),
+        var(--paper);
+      background-size: auto, auto, 44px 44px, 44px 44px, auto;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(1160px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 22px 0 86px;
+    }
+
+    .nav {
+      position: sticky;
+      top: 14px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 74px;
+      padding: 12px 14px 12px 18px;
+      border: 1px solid rgba(21,16,13,.12);
+      border-radius: 999px;
+      background: rgba(255, 250, 242, .78);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 45px rgba(39, 20, 8, .08);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: -.02em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--dark);
+      font-size: 12px;
+      letter-spacing: -.12em;
+    }
+
+    .brand small {
+      display: block;
+      margin-top: 2px;
+      color: var(--orange);
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-link {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+    .nav-link:hover { color: var(--orange); }
+
+    .countbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: -40px 0 44px;
+      padding: 13px 22px;
+      border-radius: 16px;
+      background: linear-gradient(90deg, rgba(255,79,32,.13), rgba(255,122,47,.10));
+      border: 1px solid rgba(255,79,32,.38);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      text-align: center;
+    }
+    .countbar-pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--orange);
+      animation: countpulse 1.6s infinite;
+    }
+    @keyframes countpulse {
+      0%   { box-shadow: 0 0 0 0 rgba(255,79,32,.55); }
+      70%  { box-shadow: 0 0 0 10px rgba(255,79,32,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,79,32,0); }
+    }
+    .countbar strong { color: var(--orange); }
+    .countbar-clock {
+      font-variant-numeric: tabular-nums;
+      font-weight: 900;
+      letter-spacing: .06em;
+      color: #fff;
+      background: var(--orange);
+      padding: 6px 12px;
+      border-radius: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 15px 24px;
+      border: 0;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--orange), var(--orange-2));
+      box-shadow: 0 20px 55px rgba(255, 79, 32, .26);
+      font-weight: 950;
+      letter-spacing: -.02em;
+      text-decoration: none;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 26px 70px rgba(255, 79, 32, .32);
+    }
+
+    .btn.dark {
+      background: var(--dark);
+      box-shadow: none;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 372px;
+      gap: clamp(34px, 6vw, 72px);
+      align-items: start;
+      margin-bottom: 68px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 22px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 79, 32, .28);
+      border-radius: 999px;
+      color: #d84317;
+      background: rgba(255, 255, 255, .45);
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(3.45rem, 8.2vw, 7.95rem);
+      line-height: .86;
+      letter-spacing: -.085em;
+    }
+
+    .lead {
+      max-width: 740px;
+      margin: 30px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.14rem, 2vw, 1.38rem);
+      line-height: 1.48;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .microcopy {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .buybox {
+      position: sticky;
+      top: 106px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 34px;
+      padding: 28px;
+      color: white;
+      background:
+        radial-gradient(circle at 80% 0%, rgba(255,79,32,.42), transparent 16rem),
+        linear-gradient(155deg, #15100d, #070504);
+      box-shadow: var(--shadow);
+    }
+
+    .buybox .label {
+      margin: 0 0 10px;
+      color: #f7c8b7;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .price {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 98px;
+      line-height: .88;
+      letter-spacing: -.09em;
+    }
+
+    .buybox p:not(.price):not(.label) {
+      color: #eadfd3;
+      line-height: 1.55;
+    }
+
+    .buybox ul {
+      display: grid;
+      gap: 10px;
+      margin: 22px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .buybox li {
+      color: #fff3e9;
+      font-size: 15px;
+      line-height: 1.35;
+    }
+
+    .buybox li::before {
+      content: "✓";
+      margin-right: 9px;
+      color: var(--orange-2);
+      font-weight: 950;
+    }
+
+    section {
+      margin-top: 24px;
+    }
+
+    .panel {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 36px;
+      padding: clamp(30px, 5vw, 62px);
+      background: rgba(255, 250, 242, .80);
+      box-shadow: 0 18px 60px rgba(39, 20, 8, .07);
+    }
+
+    .panel.dark {
+      color: white;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(255,79,32,.32), transparent 23rem),
+        var(--dark);
+    }
+
+    h2 {
+      max-width: 850px;
+      margin: 0 0 24px;
+      font-family: var(--serif);
+      font-size: clamp(2.25rem, 5vw, 4.75rem);
+      line-height: .92;
+      letter-spacing: -.065em;
+    }
+
+    .panel p {
+      max-width: 820px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.62;
+    }
+
+    .dark p { color: #eadfd3; }
+
+    .truth {
+      margin-top: 30px;
+      padding: clamp(24px, 4vw, 38px);
+      border: 2px solid var(--orange);
+      border-radius: 30px;
+      color: var(--ink);
+      background: #fff0df;
+      box-shadow: 14px 14px 0 rgba(255, 79, 32, .13);
+      font-family: var(--serif);
+      font-size: clamp(1.65rem, 3.2vw, 3.25rem);
+      line-height: 1.06;
+      letter-spacing: -.055em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .card {
+      min-height: 210px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 24px;
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .card b {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--orange);
+      font-size: 14px;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .steps {
+      display: grid;
+      gap: 12px;
+      margin-top: 30px;
+      counter-reset: step;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 66px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      color: var(--orange-2);
+      font-family: var(--serif);
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: -.06em;
+    }
+
+    .step h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      letter-spacing: -.03em;
+    }
+
+    .step p {
+      margin: 0;
+      color: #e7d9cc;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 10px;
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .mini-list li {
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, .66);
+      line-height: 1.45;
+    }
+
+    .mini-list li::before {
+      content: "→";
+      margin-right: 10px;
+      color: var(--orange);
+      font-weight: 950;
+    }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px 20px;
+      background: rgba(255, 255, 255, .64);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 950;
+      letter-spacing: -.02em;
+    }
+
+    details p {
+      margin-bottom: 0;
+      font-size: 16px;
+    }
+
+    .final {
+      margin-top: 26px;
+      text-align: center;
+    }
+
+    .final h2,
+    .final p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final .btn {
+      margin-top: 18px;
+      min-width: min(100%, 420px);
+    }
+
+    .fine {
+      margin-top: 22px !important;
+      color: #d7c7b8 !important;
+      font-size: 14px !important;
+    }
+
+    @media (max-width: 900px) {
+      .wrap { width: min(100% - 24px, 1160px); padding-top: 12px; }
+      .nav { margin-bottom: 44px; }
+      .countbar { margin-top: -30px; }
+      .nav-menu { display: none; }
+      .hero, .grid, .two { grid-template-columns: 1fr; }
+      .buybox { position: static; }
+      .card { min-height: auto; }
+      .step { grid-template-columns: 48px 1fr; }
+      h1 { font-size: clamp(3.1rem, 15vw, 5.2rem); }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" id="topo">
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="brand" href="#topo" style="text-decoration:none;color:inherit;">
+        <span class="brand-mark">SB</span>
+        <div>
+          Studio Brave
+          <small>O Novo Jogo da Busca Local</small>
+        </div>
+      </a>
+      <div class="nav-menu">
+        <a class="nav-link" href="#conteudo">O que vem dentro</a>
+        <a class="nav-link" href="#paraquem">Para quem é</a>
+        <a class="nav-link" href="#duvidas">Dúvidas</a>
+      </div>
+      <a class="btn" href="https://pay.cakto.com.br/geehrn7_939150" target="_blank" rel="noopener">Comprar por R$27</a>
+    </nav>
+
+    <div class="countbar" role="status" aria-live="polite">
+      <span class="countbar-pulse" aria-hidden="true"></span>
+      <span>Oferta de lançamento por <strong>R$27</strong> termina em</span>
+      <span class="countbar-clock" id="countdown">--:--:--</span>
+    </div>
+
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Playbook prático para empresas locais</p>
+        <h1>O novo jogo da busca local.</h1>
+        <p class="lead">Como fazer sua empresa ser encontrada, entendida e recomendada no Google e nas IAs em 2026 — sem cair no papo raso de que “site morreu” ou que agora basta postar no Instagram.</p>
+        <div class="hero-actions">
+          <a class="btn" href="https://pay.cakto.com.br/geehrn7_939150" target="_blank" rel="noopener">Quero o playbook por R$27</a>
+          <span class="microcopy">Acesso pela Cakto. Conteúdo direto, prático e feito para dono de negócio local.</span>
+        </div>
+      </div>
+
+      <aside class="buybox" id="comprar" aria-label="Resumo da oferta">
+        <p class="label">Oferta de lançamento</p>
+        <p class="price">R$27</p>
+        <p>Um mapa simples para entender o que sua empresa precisa construir fora do feed: site, Google, avaliações, conteúdos, provas e sinais que ajudam cliente, Google e IA a entenderem você.</p>
+        <ul>
+          <li>Playbook em HTML, fácil de ler no celular</li>
+          <li>Método MEMÓRIA para presença local</li>
+          <li>Checklist prático de execução</li>
+          <li>Plano de ação de 7 dias</li>
+        </ul>
+        <a class="btn" href="https://pay.cakto.com.br/geehrn7_939150" target="_blank" rel="noopener">Comprar agora</a>
+      </aside>
+    </header>
+
+    <section class="panel">
+      <h2>O discurso que está confundindo empresários.</h2>
+      <p>Todo dia aparece alguém dizendo que o Google morreu, que site morreu, que SEO morreu e que agora a IA vai responder tudo. Só que tem uma parte que quase ninguém explica direito: a IA não nasce sabendo sobre a sua empresa.</p>
+      <p>Ela aprende e responde a partir dos sinais públicos que existem na internet: páginas, avaliações, mapas, vídeos, notícias, fóruns, redes sociais, menções e conteúdos bem organizados.</p>
+      <div class="truth">A IA é a boca. A internet é a memória. Se a memória sobre sua empresa é fraca, a resposta também será fraca.</div>
+    </section>
+
+    <section class="panel" id="conteudo">
+      <h2>Dentro do playbook, você entende o que fazer.</h2>
+      <div class="grid">
+        <article class="card">
+          <b>01 / Clareza</b>
+          <p>Como explicar sua empresa de um jeito que cliente, Google e IA consigam entender: o que você vende, para quem, onde atende e por que confiar.</p>
+        </article>
+        <article class="card">
+          <b>02 / Estrutura</b>
+          <p>O papel de site, páginas por serviço/produto, Google Business Profile, Instagram, vídeos, avaliações e conteúdos de dúvida.</p>
+        </article>
+        <article class="card">
+          <b>03 / Execução</b>
+          <p>Um checklist para sair do “preciso postar mais” e entrar no “preciso construir sinais melhores nos lugares certos”.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel dark">
+      <h2>Não é sobre abandonar rede social. É sobre parar de depender só dela.</h2>
+      <p>Instagram ajuda a gerar desejo e prova. Mas quando alguém procura “loja de roupa na minha cidade”, “melhor presente para mãe”, “dentista para implante” ou “energia solar perto de mim”, essa busca acontece em um território maior que o feed. Vale para qualquer cidade do Brasil — a praça muda, o jogo é o mesmo.</p>
+      <div class="steps">
+        <div class="step">
+          <div>
+            <h3>Site e páginas</h3>
+            <p>Organizam sua oferta e criam respostas para buscas específicas, como produtos, serviços, dúvidas e regiões.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h3>Google e avaliações</h3>
+            <p>Mostram localização, reputação, prova social e confiança para quem já está com intenção de compra.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h3>Conteúdos e vídeos</h3>
+            <p>Transformam dúvidas reais em páginas, posts, reels e respostas que podem ser encontrados depois.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h3>Sinais externos</h3>
+            <p>Menções, parceiros, marketplaces e diretórios ajudam a internet a confirmar que sua empresa existe e é relevante.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="two" id="paraquem">
+      <div class="panel">
+        <h2>Para quem é.</h2>
+        <ul class="mini-list">
+          <li>Donos de lojas, clínicas, negócios locais e prestadores de serviço.</li>
+          <li>Negócios de qualquer cidade do Brasil — capital ou interior — que querem ser achados na própria região.</li>
+          <li>Empresas que vendem bem por indicação, mas querem ser mais encontradas.</li>
+          <li>Quem posta, mas sente que falta direção para transformar presença em busca.</li>
+          <li>Quem quer entender IA e Google sem linguagem técnica inútil.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>Para quem não é.</h2>
+        <ul class="mini-list">
+          <li>Quem procura promessa de aparecer automaticamente no ChatGPT.</li>
+          <li>Quem quer fórmula milagrosa de resultado em 7 dias.</li>
+          <li>Quem acha que marketing é só tráfego, só post ou só site.</li>
+          <li>Quem não quer organizar oferta, prova e canais digitais.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel" id="duvidas">
+      <h2>Perguntas rápidas.</h2>
+      <div class="faq">
+        <details>
+          <summary>Isso promete que minha empresa vai aparecer nas IAs?</summary>
+          <p>Não. O playbook não vende promessa automática. Ele mostra como construir sinais melhores para sua empresa ser mais fácil de encontrar, entender e considerar.</p>
+        </details>
+        <details>
+          <summary>Preciso entender de SEO?</summary>
+          <p>Não. A ideia é traduzir SEO, GEO, Google, site e conteúdo para uma linguagem que dono de empresa local consiga usar.</p>
+        </details>
+        <details>
+          <summary>Por que isso custa só R$27?</summary>
+          <p>Porque é um produto de entrada. Ele te dá clareza. Se você quiser execução depois, diagnóstico ou implantação completa, aí é outro nível de trabalho.</p>
+        </details>
+        <details>
+          <summary>Recebo o quê?</summary>
+          <p>Acesso ao playbook em HTML com explicação, método, exemplos, checklist e plano inicial de execução.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="panel" style="border:1px solid rgba(255,79,32,.4);background:linear-gradient(180deg,#fffaf2,#f6e7d4);">
+      <p style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#ff4f20;font-weight:800;margin:0 0 10px;">Depois do playbook</p>
+      <h2 style="margin:0 0 12px;">E se você não quiser fazer sozinho?</h2>
+      <p>O playbook te dá o mapa. Se você quiser que a gente <strong>execute</strong> — site rápido e indexável por IA, Google Meu Negócio, SEO local e a estrutura completa de presença — é isso que a Studio Brave faz para empresas locais todos os dias.</p>
+      <a class="btn" href="https://studiobrave.com.br" style="background:#15100d;">Ver o que a Studio Brave faz →</a>
+    </section>
+
+    <section class="panel dark final">
+      <h2>Antes de postar mais, entenda o que precisa existir.</h2>
+      <p>Por R$27, você compra clareza: o mapa do que uma empresa local precisa construir para ser encontrada no Google, compreendida pelas IAs e escolhida por clientes reais.</p>
+      <a class="btn" href="https://pay.cakto.com.br/geehrn7_939150" target="_blank" rel="noopener">Comprar o playbook por R$27</a>
+      <p class="fine">Aviso honesto: nenhuma estratégia séria garante resultado automático. O que existe é construção de base, clareza, consistência e melhoria dos sinais.</p>
+    </section>
+  </div>
+
+  <script>
+    (function () {
+      var el = document.getElementById("countdown");
+      if (!el) return;
+      function pad(n) { return (n < 10 ? "0" : "") + n; }
+      function tick() {
+        var now = new Date();
+        var end = new Date(now);
+        end.setHours(23, 59, 59, 999); // termina no fim do dia, reseta à meia-noite
+        var diff = Math.max(0, end - now);
+        var h = Math.floor(diff / 3600000);
+        var m = Math.floor((diff % 3600000) / 60000);
+        var s = Math.floor((diff % 60000) / 1000);
+        el.textContent = pad(h) + ":" + pad(m) + ":" + pad(s);
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
+</body>
+</html>

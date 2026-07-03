@@ -1,7 +1,23 @@
 export const WHATSAPP_URL =
   "https://wa.me/5554996865236?text=Oi,+vi+o+site+da+Studio+Brave+e+quero+entender+se+faz+sentido+pro+meu+negócio";
 
+// Produto de entrada — Playbook "O Novo Jogo da Busca Local" (R$27)
+export const ENTRY_PRODUCT = {
+  tag: "Produto de entrada",
+  price: "R$27",
+  name: "O Novo Jogo da Busca Local",
+  tagline:
+    "Antes de contratar agência, entenda o jogo. Um playbook prático de como sua empresa é encontrada, entendida e recomendada no Google e nas IAs em 2026.",
+  href: "/novojogo",
+  features: [
+    { text: "Método MEMÓRIA para presença local" },
+    { text: "Checklist prático de execução" },
+    { text: "Plano de ação de 7 dias" },
+  ],
+};
+
 export const NAV_LINKS = [
+  { label: "Playbook · R$27", href: "/novojogo" },
   { label: "Tese",     href: "#tese"     },
   { label: "Soluções", href: "#produtos"  },
   { label: "Cases",    href: "#cases"     },
@@ -102,7 +118,7 @@ export const CASES = [
     action: "Estrutura digital completa + criativos certos para rodar",
     result: "560%",
     resultLabel: "crescimento no faturamento",
-    resultSub: "R$25k → R$165k no mesmo mês",
+    resultSub: "R$25k → R$165k em faturamento mensal",
   },
   {
     client: "Jaco Locadora",
@@ -136,7 +152,7 @@ export const PORTFOLIO: PortfolioCase[] = [
   {
     name: "Sales Embalagens",
     segmento: "B2B · Embalagens",
-    resultado: "R$35k → R$165k de faturamento mensal",
+    resultado: "R$25k → R$165k de faturamento mensal",
     tag: "Web + Tráfego",
     image: "/projects/sales-emb.png",
     url: "https://salesemb.com.br/",
@@ -144,7 +160,7 @@ export const PORTFOLIO: PortfolioCase[] = [
   {
     name: "Torno Metal Everton Lopes",
     segmento: "Agro · Indústria · B2B",
-    resultado: "70 leads qualificados por mês a R$8,34 cada",
+    resultado: "70 leads por mês · R$17,50 por lead qualificado",
     tag: "E-commerce + SEO",
     image: "/projects/torno-metal.png",
     url: "https://tornometalevertonlopes.com.br/",

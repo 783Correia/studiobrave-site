@@ -7,12 +7,10 @@ import Cases from "@/components/Cases";
 import Processo from "@/components/Processo";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
-import Cursor from "@/components/Cursor";
 
 export default function Home() {
   return (
     <>
-      <Cursor />
       <Nav />
       <main>
         <Hero />

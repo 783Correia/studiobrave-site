@@ -1,29 +1,32 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-brand-red:       #C41E1E;
-  --color-brand-red-light: #E02222;
-  --color-brand-dark:      #111111;
-  --color-brand-card:      #141414;
-  --color-brand-card2:     #1A1A1A;
-  --color-brand-border:    #262626;
-  --color-brand-text:      #E8E8E8;
-  --color-brand-muted:     #606060;
-  --color-brand-black:     #0A0A0A;
+  --color-brand-green:       #10B981;
+  --color-brand-green-light: #34D399;
+  --color-brand-dark:        #111112;
+  --color-brand-card:        #141415;
+  --color-brand-card2:       #1A1A1B;
+  --color-brand-border:      #26262A;
+  --color-brand-text:        #F5F5F4;
+  --color-brand-muted:       #A1A19B;
+  --color-brand-faint:       #8A8A85;
+  --color-brand-black:       #0A0A0B;
 
-  --font-display: var(--font-bebas), "Bebas Neue", sans-serif;
+  --font-display: var(--font-space), "Space Grotesk", sans-serif;
   --font-body:    var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
   --font-mono:    var(--font-dm-mono), "DM Mono", monospace;
 }
 
 :root {
-  --red:    #C41E1E;
-  --black:  #0A0A0A;
-  --dark:   #111111;
-  --card:   #141414;
-  --border: #262626;
-  --text:   #E8E8E8;
-  --muted:  #606060;
+  --green:       #10B981;
+  --green-light: #34D399;
+  --black:       #0A0A0B;
+  --dark:        #111112;
+  --card:        #141415;
+  --border:      #26262A;
+  --text:        #F5F5F4;
+  --muted:       #A1A19B;
+  --faint:       #8A8A85;
 }
 
 @layer base {
@@ -51,16 +54,18 @@
 
   ::-webkit-scrollbar { width: 3px; }
   ::-webkit-scrollbar-track { background: var(--black); }
-  ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 2px; }
 
-  ::selection { background: var(--red); color: #fff; }
+  ::selection { background: var(--green); color: #04110B; }
 
   a { text-decoration: none; }
+}
 
-  /* Cursor customizado — apenas em dispositivos com hover */
-  @media (hover: hover) {
-    *, *::before, *::after { cursor: none !important; }
-  }
+/* ── DISPLAY TYPE ── */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 
 /* ── GLASS CARDS ── */
@@ -72,19 +77,19 @@
 }
 .card-glass:hover {
   background: rgba(255,255,255,0.055);
-  border-color: rgba(196,30,30,0.28);
-  box-shadow: 0 0 32px rgba(196,30,30,0.07), inset 0 1px 0 rgba(255,255,255,0.06);
+  border-color: rgba(16,185,129,0.3);
+  box-shadow: 0 0 32px rgba(16,185,129,0.07), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 .card-glass-featured {
   background: rgba(255,255,255,0.025);
-  border: 1px solid rgba(196,30,30,0.35);
+  border: 1px solid rgba(16,185,129,0.35);
   border-radius: 12px;
-  box-shadow: 0 0 48px rgba(196,30,30,0.09), inset 0 1px 0 rgba(196,30,30,0.12);
+  box-shadow: 0 0 48px rgba(16,185,129,0.09), inset 0 1px 0 rgba(16,185,129,0.12);
 }
 
 /* ── GRADIENT TEXT ── */
-.text-gradient-red {
-  background: linear-gradient(135deg, #C41E1E 0%, #E84444 55%, #C41E1E 100%);
+.text-gradient-green {
+  background: linear-gradient(135deg, #34D399 0%, #6EE7B7 55%, #34D399 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -106,6 +111,11 @@
 }
 .animate-glow-a { animation: float-glow 7s ease-in-out infinite; }
 .animate-glow-b { animation: float-glow-alt 9s ease-in-out infinite 1.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-glow-a, .animate-glow-b { animation: none; }
+  html { scroll-behavior: auto; }
+}
 
 /* Noise grain overlay */
 body::before {

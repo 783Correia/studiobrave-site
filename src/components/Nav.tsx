@@ -19,30 +19,35 @@ export default function Nav() {
     <header
       className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500"
       style={{
-        background: scrolled ? "rgba(10,10,10,0.95)" : "transparent",
+        background: scrolled ? "rgba(10,10,11,0.95)" : "transparent",
         backdropFilter: scrolled ? "blur(24px)" : "none",
-        borderBottom: scrolled ? "1px solid #2A2A2A" : "1px solid transparent",
+        borderBottom: scrolled ? "1px solid #26262A" : "1px solid transparent",
       }}
     >
       <Container as="nav" className="py-5 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="font-display text-[26px] tracking-[3px] text-white no-underline hover:opacity-80 transition-opacity duration-200">
-          STUDIO <span className="text-brand-red">BRAVE</span>
+        <a href="#" className="font-display text-[19px] text-white no-underline hover:opacity-80 transition-opacity duration-200">
+          Studio <span className="text-brand-green-light">Brave</span>
         </a>
 
         {/* Desktop links */}
         <ul className="hidden md:flex gap-10 list-none">
-          {NAV_LINKS.map((link) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                className="relative text-brand-muted text-[12px] uppercase tracking-[0.12em] font-medium no-underline transition-colors duration-200 hover:text-white group"
-              >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-brand-red transition-all duration-300 group-hover:w-full" />
-              </a>
-            </li>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isProduct = link.href.startsWith("/");
+            return (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  className={`relative text-[12px] uppercase tracking-[0.12em] font-medium no-underline transition-colors duration-200 hover:text-white group ${
+                    isProduct ? "text-brand-green-light" : "text-brand-muted"
+                  }`}
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-brand-green transition-all duration-300 group-hover:w-full" />
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
         {/* Desktop CTA */}
@@ -50,7 +55,7 @@ export default function Nav() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center gap-2 bg-brand-red text-white text-[10px] font-bold uppercase tracking-[2px] px-5 py-2.5 transition-all duration-200 hover:brightness-110"
+          className="hidden md:inline-flex items-center gap-2 bg-brand-green text-[#04110B] text-[10px] font-bold uppercase tracking-[2px] px-5 py-2.5 rounded-md transition-all duration-200 hover:brightness-110"
         >
           Ver se faz sentido
         </a>
@@ -85,7 +90,7 @@ export default function Nav() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="md:hidden border-t border-brand-border overflow-hidden"
-            style={{ background: "rgba(10,10,10,0.98)", backdropFilter: "blur(24px)" }}
+            style={{ background: "rgba(10,10,11,0.98)", backdropFilter: "blur(24px)" }}
           >
             <ul className="list-none px-6 py-8 flex flex-col gap-6">
               {NAV_LINKS.map((link) => (
@@ -93,7 +98,9 @@ export default function Nav() {
                   <a
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="text-brand-text text-[16px] uppercase tracking-[0.1em] font-medium no-underline hover:text-brand-red transition-colors duration-200"
+                    className={`text-[16px] uppercase tracking-[0.1em] font-medium no-underline hover:text-brand-green-light transition-colors duration-200 ${
+                      link.href.startsWith("/") ? "text-brand-green-light" : "text-brand-text"
+                    }`}
                   >
                     {link.label}
                   </a>
@@ -104,7 +111,7 @@ export default function Nav() {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex bg-brand-red text-white text-[11px] font-bold uppercase tracking-[2px] px-5 py-3 hover:brightness-110 transition-all duration-200"
+                  className="inline-flex bg-brand-green text-[#04110B] text-[11px] font-bold uppercase tracking-[2px] px-5 py-3 rounded-md hover:brightness-110 transition-all duration-200"
                 >
                   Ver se faz sentido
                 </a>

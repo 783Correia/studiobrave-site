@@ -10,7 +10,7 @@ import Button from "@/components/ui/Button";
 export default function CTA() {
   return (
     <section className="relative bg-brand-black border-t border-brand-border overflow-hidden">
-      {/* Red glow center */}
+      {/* Green glow center */}
       <div
         className="absolute pointer-events-none"
         style={{
@@ -19,7 +19,7 @@ export default function CTA() {
           transform: "translate(-50%, -50%)",
           width: "800px",
           height: "800px",
-          background: "radial-gradient(circle, rgba(196,30,30,0.08) 0%, transparent 65%)",
+          background: "radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 65%)",
         }}
       />
 
@@ -35,11 +35,10 @@ export default function CTA() {
 
           <motion.h2
             variants={fadeUp}
-            className="font-display text-[clamp(60px,9vw,132px)] leading-[0.88] text-white mb-8"
+            className="font-display text-[clamp(38px,6vw,80px)] leading-[1.02] text-white mb-8 max-w-[16ch]"
           >
-            SEU NEGÓCIO<br />
-            APARECE ONDE<br />
-            <span className="text-brand-red">O CLIENTE BUSCA?</span>
+            Seu negócio aparece onde{" "}
+            <span className="text-gradient-green">o cliente busca?</span>
           </motion.h2>
 
           <motion.p
@@ -58,7 +57,7 @@ export default function CTA() {
               rel="noopener noreferrer"
               size="lg"
             >
-              VER SE FAZ SENTIDO → WHATSAPP
+              Ver se faz sentido no WhatsApp →
             </Button>
 
             <p className="font-mono text-[10px] text-brand-muted tracking-[0.15em] uppercase">
