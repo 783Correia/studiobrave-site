@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { easeExpo } from "@/lib/motion";
 
 const WPP = "5554996865236";
-const STORAGE_KEY = "brave-briefing-v1";
+const STORAGE_KEY = "brave-briefing-v2"; // v2: roteiro de diagnóstico — invalida respostas do roteiro antigo
 
 type QType = "text" | "textarea" | "radio" | "checkbox";
 
