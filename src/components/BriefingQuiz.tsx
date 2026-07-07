@@ -4,8 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { easeExpo } from "@/lib/motion";
 
-const WPP = "5554996865236";
-const STORAGE_KEY = "brave-briefing-v2"; // v2: roteiro de diagnóstico — invalida respostas do roteiro antigo
+const STORAGE_KEY = "brave-briefing-v3"; // v3: código de acesso + envio pro painel
 
 type QType = "text" | "textarea" | "radio" | "checkbox";
 
@@ -21,7 +20,7 @@ type Question = {
   showIf?: { id: string; value: string };
 };
 
-const QUESTIONS: Question[] = [
+export const QUESTIONS: Question[] = [
   // ── REALIDADE DO NEGÓCIO ──
   { id: "nome", section: "O negócio", type: "text", title: "Pra começar: seu nome e o da empresa.", placeholder: "Ex.: Maurício — Rodama" },
   { id: "historia", section: "O negócio", type: "textarea", title: "Apresenta a empresa como você apresentaria pro seu melhor cliente.", hint: "História, tempo de mercado, o que vocês fazem de melhor." },
@@ -63,21 +62,30 @@ const QUESTIONS: Question[] = [
 
 type Answers = Record<string, string | string[]>;
 
-function loadSaved(): { answers: Answers; idx: number } {
-  if (typeof window === "undefined") return { answers: {}, idx: -1 };
+function loadSaved(): { answers: Answers; idx: number; code: string } {
+  if (typeof window === "undefined") return { answers: {}, idx: -2, code: "" };
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       const p = JSON.parse(raw);
-      return { answers: p.answers ?? {}, idx: typeof p.idx === "number" ? p.idx : -1 };
+      return {
+        answers: p.answers ?? {},
+        idx: typeof p.idx === "number" ? p.idx : -2,
+        code: typeof p.code === "string" ? p.code : "",
+      };
     }
   } catch {}
-  return { answers: {}, idx: -1 };
+  return { answers: {}, idx: -2, code: "" };
 }
 
 export default function BriefingQuiz() {
   const [answers, setAnswers] = useState<Answers>({});
-  const [idx, setIdx] = useState(-1); // -1 = tela inicial
+  const [idx, setIdx] = useState(-2); // -2 = código de acesso, -1 = intro
+  const [code, setCode] = useState("");
+  const [codeInput, setCodeInput] = useState("");
+  const [codeError, setCodeError] = useState(false);
+  const [checking, setChecking] = useState(false);
+  const [sendState, setSendState] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [hydrated, setHydrated] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -85,9 +93,35 @@ export default function BriefingQuiz() {
   useEffect(() => {
     const saved = loadSaved();
     setAnswers(saved.answers);
-    setIdx(saved.idx);
+    setCode(saved.code);
+    setIdx(saved.code ? saved.idx : -2);
     setHydrated(true);
   }, []);
+
+  const unlock = async () => {
+    if (!codeInput.trim() || checking) return;
+    setChecking(true);
+    setCodeError(false);
+    try {
+      const r = await fetch("/api/briefing/validate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code: codeInput }),
+      });
+      if (r.ok) {
+        const c = codeInput.trim().toUpperCase();
+        setCode(c);
+        setIdx(-1);
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ answers, idx: -1, code: c })); } catch {}
+      } else {
+        setCodeError(true);
+      }
+    } catch {
+      setCodeError(true);
+    } finally {
+      setChecking(false);
+    }
+  };
 
   const visible = useMemo(
     () => QUESTIONS.filter((q) => !q.showIf || answers[q.showIf.id] === q.showIf.value),
@@ -98,8 +132,8 @@ export default function BriefingQuiz() {
   const q = !done && idx >= 0 ? visible[idx] : null;
 
   const persist = useCallback((a: Answers, i: number) => {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ answers: a, idx: i })); } catch {}
-  }, []);
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ answers: a, idx: i, code })); } catch {}
+  }, [code]);
 
   const setAnswer = (id: string, value: string | string[]) => {
     const next = { ...answers, [id]: value };
@@ -136,7 +170,21 @@ export default function BriefingQuiz() {
     return out;
   };
 
-  const sendWhatsApp = () => window.open(`https://wa.me/${WPP}?text=${encodeURIComponent(compile())}`, "_blank");
+  const submit = async () => {
+    if (sendState === "sending" || sendState === "sent") return;
+    setSendState("sending");
+    try {
+      const r = await fetch("/api/briefing/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code, answers }),
+      });
+      setSendState(r.ok ? "sent" : "error");
+    } catch {
+      setSendState("error");
+    }
+  };
+
   const download = () => {
     const blob = new Blob([compile()], { type: "text/plain;charset=utf-8" });
     const a = document.createElement("a");
@@ -167,6 +215,37 @@ export default function BriefingQuiz() {
 
       <div className="relative flex-1 flex flex-col items-center justify-center px-6 py-16 w-full max-w-[680px] mx-auto">
         <AnimatePresence mode="wait">
+
+          {/* Código de acesso */}
+          {idx === -2 && (
+            <motion.div key="gate" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.4, ease: easeExpo }} className="text-center w-full max-w-[400px]">
+              <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-brand-green-light mb-6">Studio Brave · Acesso restrito</p>
+              <h1 className="font-display text-[clamp(26px,5vw,40px)] leading-[1.08] text-white mb-4">
+                Digite o código do <span className="text-gradient-green">seu projeto.</span>
+              </h1>
+              <p className="text-brand-muted text-[14px] mb-8">Você recebeu esse código diretamente do Yuri.</p>
+              <input
+                type="text"
+                value={codeInput}
+                autoFocus
+                autoCapitalize="characters"
+                placeholder="CÓDIGO"
+                onChange={(e) => { setCodeInput(e.target.value.toUpperCase()); setCodeError(false); }}
+                onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); unlock(); } }}
+                className="w-full bg-transparent text-center font-mono text-[22px] tracking-[0.3em] text-white placeholder:text-brand-faint outline-none py-3 border-b-2 transition-colors"
+                style={{ borderColor: codeError ? "#EF4444" : "rgba(16,185,129,0.4)" }}
+              />
+              {codeError && <p className="text-[13px] mt-3" style={{ color: "#F87171" }}>Código não reconhecido — confere com o Yuri.</p>}
+              <button
+                onClick={unlock}
+                disabled={checking}
+                className="mt-8 font-semibold text-[15px] px-9 py-4 rounded-lg text-[#04110B] transition-all duration-300 hover:brightness-110 cursor-pointer disabled:opacity-60"
+                style={{ background: "linear-gradient(135deg,#34D399,#10B981)", boxShadow: "0 0 28px rgba(16,185,129,0.25)" }}
+              >
+                {checking ? "Verificando…" : "Entrar →"}
+              </button>
+            </motion.div>
+          )}
 
           {/* Tela inicial */}
           {idx === -1 && (
@@ -305,18 +384,28 @@ export default function BriefingQuiz() {
               <div className="w-16 h-16 rounded-full mx-auto mb-7 flex items-center justify-center text-[26px] text-brand-green-light"
                 style={{ background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.4)" }}>✓</div>
               <h2 className="font-display text-[clamp(26px,5vw,38px)] leading-tight text-white mb-4">
-                Briefing <span className="text-gradient-green">completo.</span>
+                {sendState === "sent" ? <>Briefing <span className="text-gradient-green">recebido.</span></> : <>Briefing <span className="text-gradient-green">completo.</span></>}
               </h2>
               <p className="text-brand-muted text-[15px] mb-9 leading-relaxed">
-                Agora é só enviar — suas respostas chegam formatadas direto no WhatsApp do Yuri.
+                {sendState === "sent"
+                  ? "Suas respostas foram entregues com segurança. O Yuri já tem tudo pra desenhar a estrutura — obrigado pelo tempo!"
+                  : "Revise se quiser e envie — suas respostas vão direto pro painel seguro do Yuri."}
               </p>
-              <button
-                onClick={sendWhatsApp}
-                className="w-full font-semibold text-[16px] px-8 py-4 rounded-lg text-[#04110B] transition-all duration-300 hover:brightness-108 cursor-pointer"
-                style={{ background: "#25D366" }}
-              >
-                Enviar pro WhatsApp do Yuri →
-              </button>
+              {sendState !== "sent" && (
+                <button
+                  onClick={submit}
+                  disabled={sendState === "sending"}
+                  className="w-full font-semibold text-[16px] px-8 py-4 rounded-lg text-[#04110B] transition-all duration-300 hover:brightness-110 cursor-pointer disabled:opacity-60"
+                  style={{ background: "linear-gradient(135deg,#34D399,#10B981)", boxShadow: "0 0 28px rgba(16,185,129,0.3)" }}
+                >
+                  {sendState === "sending" ? "Enviando…" : "Enviar briefing →"}
+                </button>
+              )}
+              {sendState === "error" && (
+                <p className="text-[13px] mt-4" style={{ color: "#F87171" }}>
+                  Não consegui enviar agora. Tenta de novo — ou baixa a cópia abaixo e manda pro Yuri.
+                </p>
+              )}
               <button
                 onClick={download}
                 className="w-full font-mono text-[11px] uppercase tracking-[0.2em] text-brand-muted hover:text-white mt-4 py-3.5 rounded-lg transition-colors cursor-pointer"
@@ -324,9 +413,11 @@ export default function BriefingQuiz() {
               >
                 Baixar cópia (.txt)
               </button>
-              <button onClick={() => go(total - 1)} className="block mx-auto font-mono text-[10px] uppercase tracking-[0.2em] text-brand-faint hover:text-white mt-7 transition-colors cursor-pointer bg-transparent border-0">
-                ← revisar respostas
-              </button>
+              {sendState !== "sent" && (
+                <button onClick={() => go(total - 1)} className="block mx-auto font-mono text-[10px] uppercase tracking-[0.2em] text-brand-faint hover:text-white mt-7 transition-colors cursor-pointer bg-transparent border-0">
+                  ← revisar respostas
+                </button>
+              )}
             </motion.div>
           )}
         </AnimatePresence>
