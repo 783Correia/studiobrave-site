@@ -22,33 +22,43 @@ type Question = {
 };
 
 const QUESTIONS: Question[] = [
-  { id: "nome", section: "Você", type: "text", title: "Pra começar: seu nome e o da empresa.", placeholder: "Ex.: Maurício — Rodama" },
-  { id: "historia", section: "O negócio", type: "textarea", title: "Conta a empresa em poucas linhas — como você a apresentaria a um cliente novo.", hint: "História, tempo de mercado, o que fazem de melhor." },
-  { id: "diferenciais", section: "O negócio", type: "textarea", title: "Quais os 3 maiores diferenciais de vocês frente à concorrência?" },
-  { id: "lema", section: "O negócio", type: "text", title: "Alguma frase ou lema que a marca usa?", hint: "Se não tiver, deixa em branco — criamos juntos." },
-  { id: "objetivo", section: "O negócio", type: "radio", title: "Qual o principal objetivo do site?", options: ["Credibilidade — apresentar a empresa com peso", "Gerar contatos e orçamentos", "Mostrar catálogo de produtos", "Tudo isso junto"] },
-  { id: "ref_sites", section: "Referências", type: "textarea", title: "Sites que você acha bem feitos — do seu mercado ou não.", hint: "Pode colar os links." },
-  { id: "ref_concorrentes", section: "Referências", type: "textarea", title: "Concorrentes diretos que valem a pena eu estudar." },
-  { id: "ref_naoquero", section: "Referências", type: "textarea", title: "Algo que você viu por aí e NÃO quer no seu site?" },
-  { id: "tem_catalogo", section: "Catálogo", type: "radio", title: "O projeto tem catálogo de produtos ou peças?", options: ["Sim", "Não"] },
-  { id: "cat_org", section: "Catálogo", type: "radio", title: "Como o cliente deve navegar no catálogo?", options: ["Por tipo de produto/peça", "Por marca ou aplicação", "Os dois — com filtros"], showIf: { id: "tem_catalogo", value: "Sim" } },
-  { id: "cat_qtd", section: "Catálogo", type: "radio", title: "Quantos produtos, aproximadamente, no lançamento?", options: ["Até 20", "20 a 50", "50 a 100", "Mais de 100"], showIf: { id: "tem_catalogo", value: "Sim" } },
-  { id: "cat_fotos", section: "Catálogo", type: "radio", title: "Os produtos têm fotos boas hoje?", options: ["Sim, com qualidade", "Algumas têm", "Não — precisamos fotografar"], showIf: { id: "tem_catalogo", value: "Sim" } },
-  { id: "cat_planilha", section: "Catálogo", type: "radio", title: "Existe planilha ou PDF com códigos, descrições e preços?", hint: "Esse material é o que destrava o prazo de entrega.", options: ["Sim, pronto pra enviar", "Existe, mas precisa organizar", "Precisa ser montado do zero"], showIf: { id: "tem_catalogo", value: "Sim" } },
-  { id: "tem_area", section: "Área restrita", type: "radio", title: "Os preços são restritos — cada tipo de cliente vê um preço diferente?", options: ["Sim, preço por perfil de cliente (com login)", "Não, preço aberto pra todo mundo", "O site não mostra preço"], showIf: { id: "tem_catalogo", value: "Sim" } },
-  { id: "login_perfis", section: "Área restrita", type: "checkbox", title: "Quais perfis de cliente existem?", options: ["Atacadista", "Venda direta", "Representante", "Outro"], showIf: { id: "tem_area", value: "Sim, preço por perfil de cliente (com login)" } },
-  { id: "login_acesso", section: "Área restrita", type: "radio", title: "Como o cliente ganha acesso aos preços?", options: ["A empresa cria o login e envia", "O cliente solicita no site e a empresa aprova", "Me orienta — quero o mais prático"], showIf: { id: "tem_area", value: "Sim, preço por perfil de cliente (com login)" } },
-  { id: "login_admin", section: "Área restrita", type: "text", title: "Quem na empresa vai administrar preços e clientes no painel?", placeholder: "Nome e função", showIf: { id: "tem_area", value: "Sim, preço por perfil de cliente (com login)" } },
-  { id: "mat_itens", section: "Material", type: "checkbox", title: "O que você já tem pronto pra me enviar?", options: ["Logotipo em boa qualidade", "Fotos da empresa/equipe", "Fotos de produtos", "Vídeos", "Textos institucionais", "Catálogo em PDF/planilha"] },
-  { id: "mat_dominio", section: "Material", type: "text", title: "Já tem domínio ou site no ar? Qual endereço — e quem tem o acesso?", placeholder: "Ex.: www.suaempresa.com.br" },
-  { id: "mat_marca", section: "Material", type: "textarea", title: "Sobre o visual: cores que você gosta, cores que odeia, estilo que combina com a marca." },
-  { id: "idiomas", section: "Alcance", type: "radio", title: "O site precisa de mais de um idioma?", options: ["Só português", "Português + inglês", "Português + espanhol", "Português + inglês + espanhol"] },
-  { id: "contato_whats", section: "Contato", type: "text", inputMode: "tel", title: "Qual WhatsApp deve receber os contatos que chegarem pelo site?" },
-  { id: "contato_email", section: "Contato", type: "text", inputMode: "email", title: "Qual e-mail comercial deve aparecer no site?" },
-  { id: "ctr_email", section: "Contrato", type: "text", inputMode: "email", title: "Seu e-mail pra assinatura eletrônica do contrato." },
-  { id: "ctr_tel", section: "Contrato", type: "text", inputMode: "tel", title: "Seu telefone." },
-  { id: "ctr_venc", section: "Contrato", type: "radio", title: "Melhor dia do mês pro vencimento da mensalidade?", options: ["Dia 5", "Dia 10", "Dia 15", "Dia 20", "Dia 25"] },
-  { id: "obs", section: "Fechamento", type: "textarea", title: "Pra fechar: algo mais que eu deveria saber antes de começar?" },
+  // ── REALIDADE DO NEGÓCIO ──
+  { id: "nome", section: "O negócio", type: "text", title: "Pra começar: seu nome e o da empresa.", placeholder: "Ex.: Maurício — Rodama" },
+  { id: "historia", section: "O negócio", type: "textarea", title: "Apresenta a empresa como você apresentaria pro seu melhor cliente.", hint: "História, tempo de mercado, o que vocês fazem de melhor." },
+  { id: "diferenciais", section: "O negócio", type: "textarea", title: "O que vocês fazem que a concorrência não consegue fazer igual?", hint: "Técnica, prazo, atendimento, história — o que segura o cliente com vocês." },
+  { id: "origem_clientes", section: "O negócio", type: "checkbox", title: "Hoje, de onde vêm os clientes novos?", hint: "Marque tudo que acontece de verdade.", options: ["Indicação boca a boca", "Representantes", "Distribuidores/revendas", "Instagram/redes sociais", "Google/busca", "Feiras e eventos", "Carteira antiga — quase não entra cliente novo"] },
+  { id: "processo_venda", section: "O negócio", type: "textarea", title: "Me descreve uma venda típica, do primeiro contato até o fechamento.", hint: "Quem atende, por onde chega, como orça, quanto tempo leva, quem decide." },
+  { id: "perfis_cliente", section: "O negócio", type: "textarea", title: "Quem são os 2 ou 3 tipos de cliente mais importantes pro faturamento?", hint: "Ex.: revenda agrícola do interior, cooperativa, produtor direto…" },
+
+  // ── MERCADO ──
+  { id: "alcance", section: "Mercado", type: "textarea", title: "Onde estão seus clientes hoje — e onde você QUER chegar?", hint: "Regiões, estados, países. O que é realidade e o que é ambição." },
+  { id: "concorrentes", section: "Mercado", type: "textarea", title: "Quais concorrentes incomodam — e o que eles fazem bem que vocês ainda não fazem?" },
+  { id: "busca_google", section: "Mercado", type: "textarea", title: "Quando um cliente procura o que vocês vendem no Google, o que ele digita?", hint: "As palavras EXATAS que o comprador usa. Isso vale ouro pra vocês serem encontrados — inclusive pelas IAs (ChatGPT já recomenda empresas hoje)." },
+
+  // ── CATÁLOGO ──
+  { id: "tem_catalogo", section: "Catálogo", type: "radio", title: "O negócio trabalha com catálogo de produtos ou peças?", options: ["Sim", "Não"] },
+  { id: "cat_linhas", section: "Catálogo", type: "textarea", title: "O que exatamente vocês vendem? Me dá o mapa das linhas de produto.", hint: "Tipos de peça, aplicações, marcas de máquina que atendem — do jeito que você explica pro cliente.", showIf: { id: "tem_catalogo", value: "Sim" } },
+  { id: "cat_existe", section: "Catálogo", type: "radio", title: "Hoje, esse catálogo existe onde?", options: ["Planilha ou PDF organizado", "Num sistema/ERP", "Espalhado — parte em papel, parte na cabeça", "Não existe formalizado"], showIf: { id: "tem_catalogo", value: "Sim" } },
+  { id: "cat_qtd", section: "Catálogo", type: "radio", title: "Quantos itens, aproximadamente?", options: ["Até 20", "20 a 50", "50 a 100", "Mais de 100"], showIf: { id: "tem_catalogo", value: "Sim" } },
+  { id: "cat_fotos", section: "Catálogo", type: "radio", title: "Os produtos têm fotos de qualidade hoje?", options: ["Sim, com qualidade", "Algumas têm", "Não — precisaria fotografar"], showIf: { id: "tem_catalogo", value: "Sim" } },
+  { id: "orcamento_hoje", section: "Catálogo", type: "textarea", title: "Como o cliente pede orçamento hoje — e o que costuma travar nesse processo?", hint: "WhatsApp? Telefone? Representante? Onde demora, onde se perde pedido.", showIf: { id: "tem_catalogo", value: "Sim" } },
+
+  // ── PREÇOS E RELACIONAMENTO ──
+  { id: "tem_area", section: "Preços e clientes", type: "radio", title: "O preço é igual pra todo mundo?", options: ["Não — cada tipo de cliente tem um preço (tabela por perfil)", "Sim, preço único", "Preço só sob consulta"], showIf: { id: "tem_catalogo", value: "Sim" } },
+  { id: "login_perfis", section: "Preços e clientes", type: "checkbox", title: "Quais perfis de preço existem?", options: ["Atacadista", "Venda direta", "Representante", "Outro"], showIf: { id: "tem_area", value: "Não — cada tipo de cliente tem um preço (tabela por perfil)" } },
+  { id: "login_acesso", section: "Preços e clientes", type: "radio", title: "Como um cliente novo passa a ter acesso à tabela dele?", options: ["A empresa cadastra e libera", "O cliente solicita e a empresa aprova", "Me orienta — quero o mais prático"], showIf: { id: "tem_area", value: "Não — cada tipo de cliente tem um preço (tabela por perfil)" } },
+  { id: "login_admin", section: "Preços e clientes", type: "text", title: "Quem na empresa vai administrar preços, peças e clientes no dia a dia?", placeholder: "Nome e função", showIf: { id: "tem_catalogo", value: "Sim" } },
+
+  // ── PRESENÇA ATUAL ──
+  { id: "presenca_atual", section: "Presença atual", type: "checkbox", title: "O que existe HOJE de presença digital?", hint: "Sem vergonha — é diagnóstico, não julgamento.", options: ["Site no ar", "Google Meu Negócio/Maps", "Instagram ativo", "Catálogo digital (PDF que circula)", "Anúncios pagos rodando", "Praticamente nada"] },
+  { id: "presenca_links", section: "Presença atual", type: "textarea", title: "Cola aqui os links do que existe: site, Instagram, Google Maps…", hint: "E me conta: o que funciona e o que te envergonha neles?" },
+  { id: "medicao", section: "Presença atual", type: "radio", title: "Alguém mede de onde vêm os contatos que chegam?", options: ["Sim, temos números", "Mais ou menos — no feeling", "Ninguém mede nada"] },
+
+  // ── VISÃO ──
+  { id: "visao_12m", section: "Visão", type: "textarea", title: "Imagina que daqui 12 meses a estrutura digital funcionou perfeitamente. O que mudou no negócio?", hint: "Seja concreto: mais pedidos de onde? Menos dependência de quê? O que você quer poder dizer?" },
+  { id: "medos", section: "Visão", type: "textarea", title: "O que NÃO pode acontecer de jeito nenhum nesse projeto?", hint: "Ex.: preço vazar pra concorrente, perder o jeito da marca, complicar a operação…" },
+  { id: "mat_itens", section: "Visão", type: "checkbox", title: "Pra fechar: que material já existe pronto pra me enviar?", options: ["Logotipo em boa qualidade", "Fotos da empresa/equipe", "Fotos de produtos", "Vídeos", "Textos institucionais", "Catálogo em PDF/planilha"] },
+  { id: "obs", section: "Visão", type: "textarea", title: "Algo mais que eu deveria saber antes de desenhar a estrutura?" },
 ];
 
 type Answers = Record<string, string | string[]>;
@@ -161,13 +171,14 @@ export default function BriefingQuiz() {
           {/* Tela inicial */}
           {idx === -1 && (
             <motion.div key="intro" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.4, ease: easeExpo }} className="text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-brand-green-light mb-6">Studio Brave · Briefing do projeto</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-brand-green-light mb-6">Studio Brave · Diagnóstico de estrutura digital</p>
               <h1 className="font-display text-[clamp(30px,6vw,52px)] leading-[1.05] text-white mb-6">
-                Vamos desenhar sua <span className="text-gradient-green">estrutura digital.</span>
+                Antes de construir, eu preciso entender <span className="text-gradient-green">o seu negócio.</span>
               </h1>
-              <p className="text-brand-muted text-[15.5px] max-w-[420px] mx-auto mb-10 leading-relaxed">
-                Uma pergunta por vez, leva uns 7 minutos. Suas respostas{" "}
-                <span className="text-brand-green-light">salvam sozinhas</span> — pode parar e continuar depois, deste mesmo aparelho.
+              <p className="text-brand-muted text-[15.5px] max-w-[460px] mx-auto mb-10 leading-relaxed">
+                Isso não é um formulário de site — é o diagnóstico de como sua empresa{" "}
+                <span className="text-brand-text">é encontrada, entendida e compra</span> hoje: venda, catálogo, preços, Google, IA.
+                Leva ~10 minutos e as respostas <span className="text-brand-green-light">salvam sozinhas</span> — pode parar e continuar depois.
               </p>
               <button
                 onClick={() => go(0)}
