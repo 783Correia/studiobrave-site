@@ -115,8 +115,8 @@ export default function Cases() {
 
         <AnimatedSection>
           <p className="text-brand-muted text-[15px] mb-16 max-w-[480px]">
-            Cada número é rastreável. Cada projeto tem URL no ar.
-            Nenhuma estimativa.
+            Cada projeto tem URL no ar. Clique e veja funcionando.
+            Nenhum mockup, nenhuma estimativa.
           </p>
         </AnimatedSection>
 
