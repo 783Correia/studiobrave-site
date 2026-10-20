@@ -98,6 +98,8 @@ function CaseCard({ project, large }: { project: PortfolioCase; large?: boolean 
 export default function Cases() {
   const featured = PORTFOLIO.find((p) => p.featured)!;
   const rest = PORTFOLIO.filter((p) => !p.featured);
+  // Card convite ocupa o que sobra da última linha (3 cards por linha no lg)
+  const ctaSpan = ["lg:col-span-6", "lg:col-span-4", "lg:col-span-2"][(rest.length - 1) % 3];
 
   return (
     <section className="py-28 md:py-40">
@@ -134,7 +136,7 @@ export default function Cases() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="case-card group relative flex flex-col items-start justify-between overflow-hidden rounded-2xl p-6 lg:col-span-2 min-h-[220px]"
+            className={`case-card group relative flex flex-col items-start justify-between overflow-hidden rounded-2xl p-6 ${ctaSpan} min-h-[220px]`}
             style={{
               background:
                 "linear-gradient(160deg, rgba(16,185,129,0.09) 0%, rgba(16,185,129,0.02) 60%)",
